@@ -5,6 +5,8 @@ import {
   faGithub,
   faZhihu,
   faFacebookF,
+  faMastodon,
+  faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 
 const installFontAwesome = () => {
@@ -13,6 +15,8 @@ const installFontAwesome = () => {
     faComment,
     faChevronUp,
     faEnvelope,
+    faMastodon,
+    faTwitter,
     faGithub,
     faZhihu,
     faFacebookF,

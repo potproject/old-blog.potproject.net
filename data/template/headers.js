@@ -10,7 +10,7 @@ const data = {
         createdDate: `${new Date()}`,
         title: 'Hello, World!',
         titleVisible: true,
-        subTitle: "Calpa's Blog Starter",
+        subTitle: 'Sub Title',
         subTitleVisible: true,
       },
     },

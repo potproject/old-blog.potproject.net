@@ -1,18 +1,25 @@
 /* eslint max-len: 1 */
 const dayjs = require('dayjs');
 const Remarkable = require('remarkable');
+const {
+  title,
+  theme_color: themeColor,
+  description,
+  name,
+  url,
+} = require('./data/template/config');
 
 const extractData = (site, edge) => {
-  const url = `${site.siteMetadata.siteUrl}/${dayjs(
-    edge.node.createdDate,
-  ).format('YYYY/MM/DD')}/${edge.node.url}`;
+  const url = `${site.siteMetadata.siteUrl}/${dayjs(edge.node.createdDate).format('YYYY/MM/DD')}/${
+    edge.node.url
+  }`;
 
   const md = new Remarkable({});
-  const description = md.render(edge.node.content);
+  const descriptionContent = md.render(edge.node.content);
 
   return {
     title: edge.node.title,
-    description,
+    description: descriptionContent,
     date: dayjs(edge.node.createdDate).format('MMMM DD, YYYY, h:mm A'),
     url,
     guid: url,
@@ -22,10 +29,10 @@ const extractData = (site, edge) => {
 module.exports = {
   pathPrefix: '/',
   siteMetadata: {
-    title: 'Calpa&apos;s Blog',
-    description: 'Front End Technical Blog - Calpa',
-    siteUrl: 'https://calpa.me',
-    author: 'Calpa',
+    title,
+    description,
+    siteUrl: url,
+    author: name,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -83,11 +90,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: "Calpa's Blog",
-        short_name: 'Calpa',
+        name: title,
+        short_name: name,
         start_url: '/',
         background_color: '#ededed',
-        theme_color: '#384f7c',
+        theme_color: themeColor,
         display: 'standalone',
         icons: [
           {

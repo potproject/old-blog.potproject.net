@@ -2,9 +2,9 @@ import React from 'react';
 
 import ExternalLink from '../ExternalLink';
 import { config } from '../../../data';
-
 import './index.scss';
 
+const { url, title, githubRepoName } = config;
 const Footer = () => (
   <footer className="footer">
     <div className="container">
@@ -27,10 +27,7 @@ const Footer = () => (
 
 
             The code is open source and available at&nbsp;
-            <ExternalLink
-              href="https://github.com/potproject/blog.potproject.net"
-              title="potproject/blog.potproject.net"
-            />
+            <ExternalLink href={`https://github.com/${githubRepoName}`} title={githubRepoName} />
 
 
             &nbsp;based by&nbsp;
@@ -43,11 +40,14 @@ const Footer = () => (
 
 
             Copyright&nbsp;
-            <ExternalLink href="https://blog.potproject.net/" title="&copy;blog.potproject.net" />
+            <ExternalLink href={url} title={title} />
 
 
             &nbsp;
-            {config.title}
+            {title}
+
+
+            &nbsp;
             {new Date().getFullYear()}
           </p>
         </div>

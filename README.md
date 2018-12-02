@@ -1,18 +1,31 @@
-## blog.potproject.net
+# blog.potproject.net
+
+# Detail
 
 based on [gatsby-starter-calpa-blog](https://github.com/calpa/gatsby-starter-calpa-blog/)
 
 Homepage:Work in Progress...
 
-### changed
+## Changed
 
-#### General
+### General
 
 - Japanese Language Supported.
+- Adding params `data/template/config.js`.
 
-#### Contentful Content Model : blogPost
+### Config
+
+- `zhihuUsername` is Deleted.
+
+### Contentful Content Model : blogPost
 
 - `tags` fields changed `string` to `Array<String>`.  
   `"Tag1, Tag2"` -> `["Tag1","Tag2"]`
 
 - `jueJinLikeIconLink` And `jueJinPostLink` fields is Deleted.
+
+### Sidebar
+
+- Adding Twiiter Link
+- Adding Mastodon Link
+- Deleting Mail Link

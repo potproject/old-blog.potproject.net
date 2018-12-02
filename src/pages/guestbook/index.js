@@ -17,7 +17,7 @@ import { config } from '../../../data';
 
 import './index.scss';
 
-const { gitalk, url } = config;
+const { title, gitalk, url: baseUrl } = config;
 
 // Prevent webpack window problem
 const isBrowser = typeof window !== 'undefined';
@@ -33,7 +33,7 @@ class Guestbook extends Component {
     // Gitalk
     const GitTalkInstance = new Gitalk({
       ...gitalk,
-      id: `${url}/guestbook/`,
+      id: `${baseUrl}/guestbook/`,
     });
     GitTalkInstance.render('gitalk-container');
   }
@@ -42,19 +42,21 @@ class Guestbook extends Component {
     const { totalCount, edges } = this.data.latestPosts;
     const url = getPath();
 
-    const description = '留言簿';
+    const description = 'Guest Book';
     const image = 'https://i.imgur.com/kjt2x52.png';
 
     return (
       <div className="row post guestbook">
         <Helmet>
-          <title>留言簿</title>
+          <title>Guest Book</title>
         </Helmet>
 
         <Sidebar totalCount={totalCount} posts={edges} post />
         <div className="col-lg-6 col-md-12 col-sm-12 order-10 d-flex flex-column content">
           <h2>
-            留言簿
+
+
+            Guest Book
             <ShareBox url={url} />
           </h2>
           <div id="gitalk-container" className="col-12" />
@@ -64,7 +66,7 @@ class Guestbook extends Component {
           url={getPath()}
           description={description}
           image={image}
-          siteTitleAlt="Calpa's Blog"
+          siteTitleAlt={title}
           isPost={false}
         />
       </div>

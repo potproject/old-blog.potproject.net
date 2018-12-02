@@ -11,7 +11,7 @@ const getUrl = (createdDate, url) => parseUrl(parseDate(createdDate), url);
 
 const LatestPost = ({ posts }) => (
   <div className="latest-post">
-    <p>最新文章</p>
+    <p>最新記事</p>
     {posts.map(({ node }) => (
       <Link
         to={getUrl(node.createdDate, node.url)}

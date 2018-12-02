@@ -14,14 +14,9 @@ import ShareBox from '../components/ShareBox';
 
 import { config } from '../../data/index';
 
-const { maxPostsInPage } = config;
+const { title, iconUrl, description } = config;
 
-const getTitle = (pageNumber = '1') => {
-  if (pageNumber === '1') {
-    return '首頁';
-  }
-  return `第 ${pageNumber} 頁`;
-};
+const getTitle = (pageNumber = '1') => ` ${pageNumber} ページ`;
 
 const Page = ({ data, location }) => (
   <div className="row homepage">
@@ -32,10 +27,7 @@ const Page = ({ data, location }) => (
       subTitle={data.header.subTitle}
       subTitleVisible={data.header.subTitleVisible}
     />
-    <Sidebar
-      totalCount={data.latestPosts.totalCount}
-      posts={data.latestPosts.edges}
-    />
+    <Sidebar totalCount={data.latestPosts.totalCount} posts={data.latestPosts.edges} />
     <div className="col-xl-6 col-lg-7 col-md-12 col-xs-12 order-2">
       <div className="row">
         {data.pagePosts.edges.map(({ node }, index) => (
@@ -63,9 +55,9 @@ const Page = ({ data, location }) => (
     <SEO
       title={getTitle(location.pathname.split('/')[2])}
       url={getPath()}
-      description="Calpa's Blog"
-      image="https://i.imgur.com/kjt2x52.png"
-      siteTitleAlt="Calpa's Blog"
+      description={description}
+      image={iconUrl}
+      siteTitleAlt={title}
       isPost={false}
     />
   </div>
@@ -89,10 +81,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    latestPosts: allPostMarkdown(
-      limit: 6
-      sort: { fields: [createdDate], order: DESC }
-    ) {
+    latestPosts: allPostMarkdown(limit: 6, sort: { fields: [createdDate], order: DESC }) {
       totalCount
       edges {
         node {

@@ -48,7 +48,7 @@ const Card = ({
             <Link to={postUrl} href={postUrl}>
 
 
-              ....繼續閱讀全文內容
+              本文を見る
             </Link>
           </div>
         </div>

@@ -13,10 +13,12 @@ import './index.scss';
 const {
   wordings,
   githubUsername,
-  zhihuUsername,
+  twitterUsername,
+  mastodonUrl,
   email,
   iconUrl,
   about,
+  name,
 } = config;
 
 const Icon = ({ href, icon }) => (
@@ -40,20 +42,15 @@ const Sidebar = ({ post, totalCount, posts }) => (
   >
     <div className="about-me">
       <Link to={about} href={about} className="name">
-        <img className="avatar" src={iconUrl} alt="Calpa" />
-        <h4>Calpa</h4>
+        <img className="avatar" src={iconUrl} alt={name} />
+        <h4>{name}</h4>
       </Link>
       <p className="mb-1">{wordings[0]}</p>
       <p className="mb-3">{wordings[1]}</p>
-      <Icon
-        href={`https://www.zhihu.com/people/${zhihuUsername}`}
-        icon={['fab', 'zhihu']}
-      />
-      <Icon
-        href={`https://github.com/${githubUsername}`}
-        icon={['fab', 'github']}
-      />
-      <Icon href={`mailto:${email}`} icon={['far', 'envelope']} />
+      <Icon href={`https://github.com/${githubUsername}`} icon={['fab', 'github']} />
+      <Icon href={mastodonUrl} icon={['fab', 'mastodon']} />
+      <Icon href={`https://twitter.com/${twitterUsername}`} icon={['fab', 'twitter']} />
+      {false && <Icon href={`mailto:${email}`} icon={['far', 'envelope']} />}
       <Subscription />
       <Information totalCount={totalCount} posts={posts} />
     </div>
@@ -68,7 +65,7 @@ Icon.propTypes = {
 Sidebar.propTypes = {
   post: PropTypes.bool,
   totalCount: PropTypes.number,
-  posts: PropTypes.array // eslint-disable-line
+  posts: PropTypes.array, // eslint-disable-line
 };
 
 Sidebar.defaultProps = {

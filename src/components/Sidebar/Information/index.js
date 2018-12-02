@@ -9,17 +9,16 @@ import './index.scss';
 const Information = ({ totalCount, posts }) => (
   <div className="d-none d-lg-block information my-2">
     <hr />
-    <p>共{totalCount}篇文章</p>
+    <p>{`全 ${totalCount} 記事`}</p>
     <hr />
     <LatestPost posts={posts} />
-    <hr />
-    <Friend />
+    {false && <hr /> && <Friend />}
   </div>
 );
 
-
 Information.propTypes = {
   totalCount: PropTypes.number.isRequired,
+  posts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Information;

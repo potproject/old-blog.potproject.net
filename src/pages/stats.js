@@ -26,23 +26,19 @@ class StatsPage extends Component {
       <div className="container">
         <div className="row">
           <div className="col">
-            <img
-              data-src={image}
-              className="lozad"
-              alt={title}
-              style={{ maxHeight: '40rem' }}
-            />
+            <img data-src={image} className="lozad" alt={title} style={{ maxHeight: '40rem' }} />
           </div>
         </div>
-
-        <SEO
-          url="/stats/"
-          title={title}
-          description={description}
-          image={image}
-          siteTitleAlt={title}
-          isPost={false}
-        />
+        {false && (
+          <SEO
+            url="/stats/"
+            title={title}
+            description={description}
+            image={image}
+            siteTitleAlt={title}
+            isPost={false}
+          />
+        )}
       </div>
     );
   }

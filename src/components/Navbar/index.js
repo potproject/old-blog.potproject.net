@@ -10,14 +10,9 @@ import { gotoPage } from '../../api/url';
 import './index.scss';
 import { config } from '../../../data';
 
-const { navbarList } = config;
+const { title, githubRepoName, navbarList } = config;
 
-const NavbarClass = [
-  'navbar',
-  'navbar-expand-md',
-  'sticky-top',
-  'custom-navbar',
-];
+const NavbarClass = ['navbar', 'navbar-expand-md', 'sticky-top', 'custom-navbar'];
 
 const Navbar = () => (
   <nav id="m-navbar" className={`${NavbarClass.join(' ')} navbar-night`}>
@@ -33,8 +28,7 @@ const Navbar = () => (
           gotoPage('/');
         }}
       >
-        <span className="brand-logo">Calpa</span>
-        &apos;s Blog
+        {title}
       </button>
       <button
         className="navbar-toggler"
@@ -44,19 +38,11 @@ const Navbar = () => (
       >
         <FontAwesomeIcon icon={faBars} />
       </button>
-      <GithubCorner url="https://github.com/calpa/gatsby-starter-calpa-blog" />
-      <div
-        className="collapse navbar-collapse flex-row-reverse"
-        id="navbarSupportedContent"
-      >
+      <GithubCorner url={`https://github.com/${githubRepoName}`} />
+      <div className="collapse navbar-collapse flex-row-reverse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-2">
           {navbarList.map(item => (
-            <NavItem
-              url={item.href}
-              name={item.title}
-              list={item.list}
-              key={item.href}
-            />
+            <NavItem url={item.href} name={item.title} list={item.list} key={item.href} />
           ))}
         </ul>
       </div>

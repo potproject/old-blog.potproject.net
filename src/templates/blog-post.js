@@ -14,7 +14,6 @@ import { parseChineseDate, getPath } from '../api';
 import { getFirstParagraph } from '../api/text';
 import { parseImgur } from '../api/images';
 
-import ExternalLink from '../components/ExternalLink';
 import Sidebar from '../components/Sidebar';
 import Content from '../components/Content';
 import SEO from '../components/SEO';
@@ -64,7 +63,7 @@ class BlogPost extends Component {
 
     let finalTitle = title;
     if (dayjs(createdDate).isAfter(issueDate)) {
-      finalTitle = `${title} | Calpa's Blog`; // For Create Github Issue
+      finalTitle = `${title} | ${config.title}`; // For Create Github Issue
 
       if (dayjs(createdDate).isBefore(idDate)) {
         id = md5(title);
@@ -110,25 +109,10 @@ class BlogPost extends Component {
         <div className="col-lg-6 col-md-12 col-sm-12 order-10 d-flex flex-column content">
           <Content post={content} uuid={id} title={title} />
 
-          <div className="m-message" style={bgWhite}>
-
-
-            如果你覺得我的文章對你有幫助的話，希望可以推薦和交流一下。歡迎
-            <ExternalLink
-              href="https://github.com/calpa/gatsby-starter-calpa-blog"
-              title="關注和 Star 本博客"
-            />
-
-
-            或者
-            <ExternalLink href="https://github.com/calpa/" title="關注我的 Github" />
-
-
-。
-          </div>
+          {false && <div className="m-message" style={bgWhite} />}
 
           <div className="m-change-page" style={bgWhite}>
-            <p>更多文章：</p>
+            {previous && next && <p>前後の記事：</p>}
             {previous && (
               <p>
                 <a href={getUrl(previous)}>{previous.title}</a>
@@ -150,7 +134,7 @@ class BlogPost extends Component {
           url={getPath()}
           description={getFirstParagraph(content)}
           image={image}
-          siteTitleAlt="Calpa's Blog"
+          siteTitleAlt={config.title}
           isPost={false}
         />
       </div>
