@@ -87,28 +87,12 @@ class BlogPost extends Component {
     const { previous, node, next } = this.data.content.edges[0];
 
     const {
-      title,
-      headerImgur,
-      createdDate,
-      content,
-      id,
-      toc,
-      tags,
-      jueJinLikeIconLink,
-      jueJinPostLink,
+      title, headerImgur, createdDate, content, id, toc, tags,
     } = node;
 
     const { totalCount, edges } = this.data.latestPosts;
 
-    let finalTags = [];
-    if (tags) {
-      finalTags = tags.split(',').map((item) => {
-        if (item) {
-          return item.trim();
-        }
-        return '';
-      });
-    }
+    const finalTags = tags;
     const image = parseImgur(headerImgur, 'large');
     const header = parseImgur(headerImgur, 'header');
 
@@ -121,25 +105,26 @@ class BlogPost extends Component {
           authorName={name}
           authorImage={iconUrl}
           subTitle={parseChineseDate(createdDate)}
-          jueJinLikeIconLink={jueJinLikeIconLink}
-          jueJinPostLink={jueJinPostLink}
         />
         <Sidebar totalCount={totalCount} posts={edges} post />
         <div className="col-lg-6 col-md-12 col-sm-12 order-10 d-flex flex-column content">
           <Content post={content} uuid={id} title={title} />
 
           <div className="m-message" style={bgWhite}>
+
+
             如果你覺得我的文章對你有幫助的話，希望可以推薦和交流一下。歡迎
             <ExternalLink
               href="https://github.com/calpa/gatsby-starter-calpa-blog"
               title="關注和 Star 本博客"
             />
+
+
             或者
-            <ExternalLink
-              href="https://github.com/calpa/"
-              title="關注我的 Github"
-            />
-            。
+            <ExternalLink href="https://github.com/calpa/" title="關注我的 Github" />
+
+
+。
           </div>
 
           <div className="m-change-page" style={bgWhite}>
@@ -192,11 +177,7 @@ export const pageQuery = graphql`
   }
 
   query BlogPostQuery($index: Int) {
-    content: allPostMarkdown(
-      sort: { fields: createdDate, order: DESC }
-      limit: 1
-      skip: $index
-    ) {
+    content: allPostMarkdown(sort: { fields: createdDate, order: DESC }, limit: 1, skip: $index) {
       ...post
       edges {
         node {
@@ -204,8 +185,6 @@ export const pageQuery = graphql`
           headerImgur
           toc
           tags
-          jueJinLikeIconLink
-          jueJinPostLink
         }
         previous {
           ...postLink

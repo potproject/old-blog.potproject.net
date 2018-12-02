@@ -16,11 +16,9 @@ const data = {
       },
       fields: {
         title: 'Blog Title',
-        tags: 'JavaScript',
+        tags: ['JavaScript'],
         url: 'your-awesome-blog-post-url',
         createdDate: `${new Date()}`,
-        jueJinLikeIconLink: '',
-        jueJinPostLink: '',
         content: '## 前言\n\nContent\n\n## abcd\n\ncontent1123123',
         headerImgur: 'https://i.imgur.com/gf1pKau.png',
         headerBackgroundColor: 'a2c9ea',

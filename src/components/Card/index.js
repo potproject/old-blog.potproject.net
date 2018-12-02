@@ -22,38 +22,32 @@ const CardHeader = ({ url, image, backgroundColor }) => (
 );
 
 const Card = ({
-  title,
-  date,
-  url,
-  headerImage,
-  headerBackgroundColor,
-  content,
-  tags,
+  title, date, url, headerImage, headerBackgroundColor, content, tags,
 }) => {
   const postUrl = parseUrl(date, url);
-  const finalTags = tags.split(', ');
+  const finalTags = tags;
 
   return (
     <div className="col-sm-12 pb-4">
       <div className="custom-card">
         {headerImage && (
-          <CardHeader
-            url={postUrl}
-            image={headerImage}
-            backgroundColor={headerBackgroundColor}
-          />
+          <CardHeader url={postUrl} image={headerImage} backgroundColor={headerBackgroundColor} />
         )}
         <div className="data">
           <div className="content">
             <div className="stats">
               <span className="date">{date}</span>
-              {finalTags.map(tag => <Tag name={tag} key={tag} />)}
+              {finalTags.map(tag => (
+                <Tag name={tag} key={tag} />
+              ))}
             </div>
             <Link to={postUrl} href={postUrl}>
               <h4 className="title">{title}</h4>
             </Link>
             <p className="d-none d-md-block">{content}</p>
             <Link to={postUrl} href={postUrl}>
+
+
               ....繼續閱讀全文內容
             </Link>
           </div>
@@ -69,12 +63,17 @@ Card.propTypes = {
   headerImage: PropTypes.string,
   headerBackgroundColor: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  tags: PropTypes.string,
+  tags: PropTypes.arrayOf(PropTypes.string),
 };
 
+CardHeader.propTypes = {
+  url: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  backgroundColor: PropTypes.string.isRequired,
+};
 Card.defaultProps = {
   headerImage: '',
-  tags: '',
+  tags: [],
 };
 
 export default Card;

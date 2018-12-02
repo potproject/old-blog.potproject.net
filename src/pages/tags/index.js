@@ -8,11 +8,9 @@ import Header from '../../components/Header';
 import ShareBox from '../../components/ShareBox';
 import SEO from '../../components/SEO';
 
-import { url } from '../../../data';
+import { url as baseURL } from '../../../data';
 
 import wrapLayout from '../../api/layout';
-
-const splitTag = (raw = '') => raw.split(', ');
 
 const parseDate = date => dayjs(date).format('YYYY/MM/DD');
 const tagCenter = 'col-12 col-md-10 col-lg-8 m-auto';
@@ -24,7 +22,7 @@ const getTag = (item) => {
     const date = parseDate(createdDate);
     const postPath = url === 'about' ? url : `${date}/${url}`;
     return {
-      tags: splitTag(item.node.tags),
+      tags: item.node.tags,
       title: item.node.title,
       url: postPath,
       createdDate,
@@ -146,7 +144,7 @@ class TagPage extends Component {
 
     const hotTags = !showAllTags ? rawTags.slice(0, 5) : rawTags;
 
-    const tagUrl = `${url}/tags`;
+    const tagUrl = `${baseURL}/tags`;
 
     return (
       <div className="row">
@@ -160,12 +158,12 @@ class TagPage extends Component {
 
         <div className={tagCenter}>
           <h2 style={{ ...style, justifyContent: 'space-between' }}>
+
+
             最熱門標籤：
-            <button
-              type="button"
-              className="btn btn-info"
-              onClick={() => this.toggleAllTags()}
-            >
+            <button type="button" className="btn btn-info" onClick={() => this.toggleAllTags()}>
+
+
               展示所有標籤
             </button>
           </h2>
