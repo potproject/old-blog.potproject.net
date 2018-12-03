@@ -160,11 +160,11 @@ class TagPage extends Component {
           <h2 style={{ ...style, justifyContent: 'space-between' }}>
 
 
-            最熱門標籤：
+            最も人気のあるタグ：
             <button type="button" className="btn btn-info" onClick={() => this.toggleAllTags()}>
 
 
-              展示所有標籤
+              すべてのタグを表示する
             </button>
           </h2>
 
@@ -195,7 +195,7 @@ class TagPage extends Component {
         <SEO
           title={header.title}
           siteTitleAlt={header.title}
-          description="所有文章"
+          description="すべての記事"
           url={tagUrl}
           isPost={false}
           image={header.headerImage}
@@ -244,5 +244,4 @@ export const pageQuery = graphql`
     }
   }
 `;
-
 export default wrapLayout(TagPage);

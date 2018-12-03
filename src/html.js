@@ -9,7 +9,7 @@ const HTML = ({
   body,
   postBodyComponents,
 }) => (
-  <html {...htmlAttributes} lang="zh">
+  <html {...htmlAttributes} lang="ja">
     <head>
       <meta charSet="utf-8" />
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
