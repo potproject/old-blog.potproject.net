@@ -2,12 +2,10 @@
 const dayjs = require('dayjs');
 const Remarkable = require('remarkable');
 const {
-  title,
-  theme_color: themeColor,
-  description,
-  name,
-  url,
+  title, theme_color: themeColor, meta, name, url,
 } = require('./data/template/config');
+
+const { description } = meta;
 
 const extractData = (site, edge) => {
   const url = `${site.siteMetadata.siteUrl}/${dayjs(edge.node.createdDate).format('YYYY/MM/DD')}/${
