@@ -18,21 +18,16 @@ const PageItem = ({ number, content }) => (
 const getPageNumber = pathname => pathname.split('/')[2];
 
 const Pagination = ({ pathname, pageCount }) => {
-  const currentPageNumber = getPageNumber(pathname);
+  const pagenum = getPageNumber(pathname);
+  const currentPageNumber = pagenum || '1';
   return (
     <nav aria-label="Page navigation example">
       <ul className="pagination justify-content-center">
-        <PageItem
-          number={handlePreviousPage(currentPageNumber)}
-          content="Previous"
-        />
+        <PageItem number={handlePreviousPage(currentPageNumber)} content="Previous" />
         <li className="page-item">
           <Dropdown pages={getPages(pageCount)} text={currentPageNumber} />
         </li>
-        <PageItem
-          number={handleNextPage(currentPageNumber, pageCount)}
-          content="Next"
-        />
+        <PageItem number={handleNextPage(currentPageNumber, pageCount)} content="Next" />
       </ul>
     </nav>
   );

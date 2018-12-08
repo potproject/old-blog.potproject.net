@@ -1,3 +1,5 @@
+const redirect = require('./redirect');
+
 module.exports = {
   title: 'blog.potproject.net',
   githubRepoName: 'potproject/blog.potproject.net',
@@ -14,7 +16,7 @@ module.exports = {
   iconUrl: 'https://potproject.net/icon/icon210.png',
   License: 'by',
   url: 'https://blog.potproject.net',
-  about: '/2018/05/01/about-me/',
+  about: '',
   // Sidebar
   wordings: ['Full-stuck engineer(Not Full-stack)', ''],
   githubUsername: 'potproject',
@@ -30,12 +32,7 @@ module.exports = {
     //    title: 'Blog Stats',
     //  },
   ],
-  redirectors: [
-    {
-      fromPath: '/',
-      toPath: '/page/1/',
-    },
-  ],
+  redirectors: [...redirect],
   gitalk: {
     clientID: 'ff1d48da242250d67f88',
     clientSecret: '2881c83d3bb83f54c7c5cbd0a9bdc89edb2b6a29',

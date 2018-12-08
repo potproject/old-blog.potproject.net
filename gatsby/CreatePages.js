@@ -4,8 +4,8 @@ const { config } = require('../data');
 
 const { redirectors = [], maxPostsInPage } = config;
 
-module.exports = ({ graphql, boundActionCreators }) => {
-  const { createPage, createRedirect } = boundActionCreators;
+module.exports = ({ graphql, actions }) => {
+  const { createPage, createRedirect } = actions;
 
   redirectors.forEach(({ fromPath, toPath = '/' }) => {
     createRedirect({ fromPath, redirectInBrowser: true, toPath });
@@ -36,6 +36,17 @@ module.exports = ({ graphql, boundActionCreators }) => {
       const pages = Math.ceil(posts.length / maxPostsInPage);
 
       for (let index = 0; index < pages; index += 1) {
+        if (index === 0) {
+          createPage({
+            path: '/',
+            component: path.resolve('./src/templates/page.js'),
+            context: {
+              // Data passed to context is available in page queries as GraphQL variables.
+              limit: maxPostsInPage,
+              skip: index * maxPostsInPage,
+            },
+          });
+        }
         createPage({
           path: `page/${index + 1}`,
           component: path.resolve('./src/templates/page.js'),
