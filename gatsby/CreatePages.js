@@ -7,8 +7,13 @@ const { redirectors = [], maxPostsInPage } = config;
 module.exports = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
 
-  redirectors.forEach(({ fromPath, toPath = '/' }) => {
-    createRedirect({ fromPath, redirectInBrowser: true, toPath });
+  redirectors.forEach(({ fromPath, isPermanent = false, toPath = '/' }) => {
+    createRedirect({
+      fromPath,
+      isPermanent,
+      redirectInBrowser: true,
+      toPath,
+    });
     // Uncomment next line to see forEach in action during build
     console.log(`Redirecting: ${fromPath} To: ${toPath}`);
   });

@@ -3,6 +3,7 @@
 module.exports = [
   {
     fromPath: '/archives/1160',
-    toPath: '/page/1/',
+    isPermanent: true,
+    toPath: '/2018/12/02/t/',
   },
 ];
