@@ -30,16 +30,17 @@ const Navbar = () => (
       >
         {title}
       </button>
-      <button
-        className="navbar-toggler"
-        type="button"
-        id="collapseNavbarButton"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-      >
-        <FontAwesomeIcon icon={faBars} />
-      </button>
-      <GithubCorner url={`https://github.com/${githubRepoName}`} />
+      {navbarList.length > 0 && (
+        <button
+          className="navbar-toggler"
+          type="button"
+          id="collapseNavbarButton"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+        >
+          <FontAwesomeIcon icon={faBars} />
+        </button>
+      )}
       <div className="collapse navbar-collapse flex-row-reverse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-2">
           {navbarList.map(item => (
@@ -47,6 +48,7 @@ const Navbar = () => (
           ))}
         </ul>
       </div>
+      <GithubCorner url={`https://github.com/${githubRepoName}`} />
     </div>
   </nav>
 );

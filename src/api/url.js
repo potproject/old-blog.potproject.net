@@ -6,6 +6,10 @@ const getUrl = ({ createdDate, url }) => `/${dayjs(createdDate).format('YYYY/MM/
 
 const gotoPage = async (url, show = false) => {
   const collapseLink = document.getElementById('collapseNavbarButton');
+  if (collapseLink === null) {
+    await navigate(url);
+    return;
+  }
   const collapseObject = new Collapse(collapseLink);
   if (show === true) {
     collapseObject.show();
