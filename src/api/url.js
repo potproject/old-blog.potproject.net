@@ -1,15 +1,17 @@
 import { navigate } from 'gatsby';
 import dayjs from 'dayjs';
+import { Collapse } from 'bootstrap.native';
 
 const getUrl = ({ createdDate, url }) => `/${dayjs(createdDate).format('YYYY/MM/DD')}/${url}`;
 
 const gotoPage = async (url, show = false) => {
+  const collapseLink = document.getElementById('collapseNavbarButton');
+  const collapseObject = new Collapse(collapseLink);
   if (show === true) {
-    await window.$('.collapse').collapse('show');
+    collapseObject.show();
   } else {
-    await window.$('.collapse').collapse('hide');
+    collapseObject.hide();
   }
-
   await navigate(url);
 };
 
@@ -60,10 +62,5 @@ const handleNextPage = (pageNumber, maxPages) => {
 };
 
 export {
-  getUrl,
-  parseMarkdownUrl,
-  parseUrl,
-  handlePreviousPage,
-  handleNextPage,
-  gotoPage,
+  getUrl, parseMarkdownUrl, parseUrl, handlePreviousPage, handleNextPage, gotoPage,
 };

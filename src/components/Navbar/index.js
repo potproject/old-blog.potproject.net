@@ -33,6 +33,7 @@ const Navbar = () => (
       <button
         className="navbar-toggler"
         type="button"
+        id="collapseNavbarButton"
         data-toggle="collapse"
         data-target="#navbarSupportedContent"
       >

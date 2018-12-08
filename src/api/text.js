@@ -42,7 +42,6 @@ const getContent = async (mdFile) => {
     },
   });
 
-  // Add image to fancybox
   md.renderer.rules.image = (tokens, idx) => {
     const { src, title, alt } = Remarkable.utils.escapeHtml(tokens[idx]);
     return getGalleryImage({ href: src, title, text: alt });

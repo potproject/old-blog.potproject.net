@@ -12,6 +12,9 @@ Homepage:Work in Progress...
 
 - Japanese Language Supported.
 - Adding params `data/template/config.js`.
+- **Not Using jQuery** And deleted.  
+  `bootstrap.js(jQuery)` -> `Bootstrap.native`  
+  `fancybox` -> none
 
 ### Config
 

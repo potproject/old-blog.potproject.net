@@ -14,8 +14,8 @@ import ShareBox from '../components/ShareBox';
 
 import { config } from '../../data/index';
 
-const { title, iconUrl, description } = config;
-
+const { title, iconUrl, meta } = config;
+const { description } = meta;
 const getTitle = (pageNumber = '1') => ` ${pageNumber} ページ`;
 
 const Page = ({ data, location }) => (

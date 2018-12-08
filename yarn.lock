@@ -2536,6 +2536,10 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
 
+bootstrap.native@^2.0.24:
+  version "2.0.24"
+  resolved "https://registry.yarnpkg.com/bootstrap.native/-/bootstrap.native-2.0.24.tgz#52e473e4aeff770ca7e0aae06369799167bc2de1"
+
 bowser@^1.7.3:
   version "1.9.4"
   resolved "https://registry.yarnpkg.com/bowser/-/bowser-1.9.4.tgz#890c58a2813a9d3243704334fa81b96a5c150c9a"
@@ -6971,6 +6975,10 @@ levn@^0.3.0, levn@~0.3.0:
   dependencies:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
+
+lightgallery.js@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/lightgallery.js/-/lightgallery.js-1.1.2.tgz#dde6bd9dc84925ec2e7aba15a837fa1297910afc"
 
 lint-staged@^8.0.4:
   version "8.1.0"
