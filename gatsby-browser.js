@@ -5,13 +5,15 @@ import { config } from './data';
 
 import installFontAwesome from './src/api/installFontAwesome';
 
-const { url, gaTrackId, gaOptimizeId } = config;
+const {
+  url, gaTrackId, gaOptimizeId, usingGA,
+} = config;
 
 installFontAwesome();
 
 const isLocalDevelopment = () => window && window.location && window.location.origin !== url;
 
-if (isLocalDevelopment() === false) {
+if (isLocalDevelopment() === false && usingGA) {
   ReactGA.initialize(gaTrackId);
 
   // Google Optimizer
@@ -22,9 +24,7 @@ if (isLocalDevelopment() === false) {
 }
 
 export const onRouteUpdate = (state) => {
-  if (isLocalDevelopment() !== true) {
+  if (isLocalDevelopment() === false && usingGA) {
     ReactGA.pageview(state.location.pathname);
-  } else {
-    console.log('isLocalDevelopment is true, so ReactGA is not activated');
   }
 };

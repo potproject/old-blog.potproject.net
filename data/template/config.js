@@ -24,8 +24,9 @@ module.exports = {
   mastodonUrl: 'https://mastodon.potproject.net/',
   friends: [],
   // Plugins
-  gaOptimizeId: 'GTM-WHP7SC5',
-  gaTrackId: 'UA-84737574-3',
+  usingGA: false,
+  gaOptimizeId: '',
+  gaTrackId: '',
   navbarList: [
     //  {
     //    href: '/stats/',

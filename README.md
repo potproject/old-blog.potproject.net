@@ -15,6 +15,8 @@ Homepage:Work in Progress...
 - **Not Using jQuery** And deleted.  
   `bootstrap.js(jQuery)` -> `Bootstrap.native`  
   `fancybox` -> none
+- Disabled Google Analytics.
+- Deleted Pages.
 
 ### Config
 

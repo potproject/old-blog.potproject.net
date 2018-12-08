@@ -10,7 +10,7 @@ import dayjs from 'dayjs';
 
 import 'gitalk/dist/gitalk.css';
 
-import { parseChineseDate, getPath } from '../api';
+import { parseDate, getPath } from '../api';
 import { getFirstParagraph } from '../api/text';
 import { parseImgur } from '../api/images';
 
@@ -103,7 +103,7 @@ class BlogPost extends Component {
           tags={finalTags}
           authorName={name}
           authorImage={iconUrl}
-          subTitle={parseChineseDate(createdDate)}
+          subTitle={parseDate(createdDate)}
         />
         <Sidebar totalCount={totalCount} posts={edges} post />
         <div className="col-lg-6 col-md-12 col-sm-12 order-10 d-flex flex-column content">

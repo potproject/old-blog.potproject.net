@@ -31,8 +31,6 @@ const overflow = () => getCurrentPage() === getMaxPages();
 
 const parseDate = date => dayjs(date).format('YYYY/MM/DD');
 
-const parseChineseDate = date => dayjs(date).format('DD/MM/YYYY');
-
 export {
   isBrowser,
   getCurrentPage,
@@ -40,7 +38,6 @@ export {
   getPages,
   overflow,
   parseDate,
-  parseChineseDate,
   getPath,
   getPageNumber,
 };
