@@ -14,6 +14,7 @@ import ShareBox from '../components/ShareBox';
 
 import { config } from '../../data/index';
 
+const defaultColor = config.posts.defaultHeaderBackgroundColor;
 const { title, iconUrl, meta } = config;
 const { description } = meta;
 const getTitle = (pageNumber = '1') => ` ${pageNumber} ページ`;
@@ -37,7 +38,7 @@ const Page = ({ data, location }) => (
             url={node.url}
             headerSize={node.headerSize}
             headerImage={node.headerImgur}
-            headerBackgroundColor={node.headerBackgroundColor || 'ededed'}
+            headerBackgroundColor={node.headerBackgroundColor || defaultColor}
             key={node.title}
             index={index}
             content={getFirstParagraph(node.content)}

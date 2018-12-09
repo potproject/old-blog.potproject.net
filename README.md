@@ -29,6 +29,8 @@ Homepage:Work in Progress...
 
 - `jueJinLikeIconLink` And `jueJinPostLink` fields is Deleted.
 
+- Add Fields `redirectPath`.
+
 ### Sidebar
 
 - Adding Twiiter Link

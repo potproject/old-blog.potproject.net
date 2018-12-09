@@ -11,6 +11,9 @@ module.exports = {
     favicon: 'https://potproject.net/icon/icon210.png',
     google_site_verification: '',
   },
+  posts: {
+    defaultHeaderBackgroundColor: '4a913c',
+  },
   name: 'potpro',
   email: '',
   iconUrl: 'https://potproject.net/icon/icon210.png',

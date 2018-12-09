@@ -5,6 +5,10 @@ const {
   title, theme_color: themeColor, meta, name, url,
 } = require('./data/template/config');
 
+const { config } = require('./data/index');
+
+const defaultColor = config.posts.defaultHeaderBackgroundColor;
+
 const { description } = meta;
 
 const extractData = (site, edge) => {
@@ -91,7 +95,7 @@ module.exports = {
         name: title,
         short_name: name,
         start_url: '/',
-        background_color: '#ededed',
+        background_color: `#${defaultColor}`,
         theme_color: themeColor,
         display: 'standalone',
         icons: [

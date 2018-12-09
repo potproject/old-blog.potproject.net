@@ -10,6 +10,10 @@ import './index.scss';
 
 import { parseUrl } from '../../api/url';
 
+import { config } from '../../../data';
+
+const defaultColor = config.posts.defaultHeaderBackgroundColor;
+
 const imageStyle = (headerImage, color) => ({
   backgroundColor: `#${color}`,
   backgroundImage: ` url(${parseImgur(headerImage, 'large')})`,
@@ -44,7 +48,11 @@ const Card = ({
             <Link to={postUrl} href={postUrl}>
               <h4 className="title">{title}</h4>
             </Link>
-            <p className="d-none d-md-block">{content}</p>
+            <p className="d-none d-md-block">
+              {content}
+
+...
+            </p>
             <Link to={postUrl} href={postUrl}>
 
 
@@ -69,8 +77,13 @@ Card.propTypes = {
 CardHeader.propTypes = {
   url: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  backgroundColor: PropTypes.string.isRequired,
+  backgroundColor: PropTypes.string,
 };
+
+CardHeader.defaultProps = {
+  backgroundColor: defaultColor,
+};
+
 Card.defaultProps = {
   headerImage: '',
   tags: [],

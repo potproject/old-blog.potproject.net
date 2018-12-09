@@ -4,16 +4,28 @@ import './index.scss';
 
 import { parseImgur } from '../../api/images';
 
+import { config } from '../../../data';
+
+const defaultColor = config.posts.defaultHeaderBackgroundColor;
+
 const Header = ({
-  img, title, subTitle, authorImage, authorName,
+  color, img, title, subTitle, authorImage, authorName,
 }) => (
   <div className="col-12 header" style={{ padding: 0 }} id="header">
     <div
       className="img-container"
-      style={{
-        backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(${img})`,
-        marginTop: -58,
-      }}
+      style={
+        img
+          ? {
+            backgroundColor: `#${color}`,
+            backgroundImage: `url(${img})`,
+            marginTop: -58,
+          }
+          : {
+            backgroundColor: `#${color}`,
+            marginTop: -58,
+          }
+      }
     >
       {title && <h1 className="u-title">{title}</h1>}
       {subTitle && (
@@ -36,7 +48,8 @@ const Header = ({
 );
 
 Header.propTypes = {
-  img: PropTypes.string.isRequired,
+  color: PropTypes.string,
+  img: PropTypes.string,
   title: PropTypes.string,
   subTitle: PropTypes.string,
   authorName: PropTypes.string,
@@ -44,6 +57,8 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
+  color: defaultColor,
+  img: null,
   title: '',
   subTitle: '',
   authorName: '',

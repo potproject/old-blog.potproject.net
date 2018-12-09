@@ -6,12 +6,7 @@ import PropTypes from 'prop-types';
 import config from '../../../data';
 
 const schemaOrgJSONLD = ({
-  url,
-  title,
-  siteTitleAlt,
-  isPost,
-  image,
-  description,
+  url, title, siteTitleAlt, isPost, image, description,
 }) => [
   {
     '@context': 'http://schema.org',
@@ -79,17 +74,11 @@ const SEO = ({
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
-    <meta
-      property="fb:app_id"
-      content={config.siteFBAppID ? config.siteFBAppID : ''}
-    />
+    <meta property="fb:app_id" content={config.siteFBAppID ? config.siteFBAppID : ''} />
 
     {/* Twitter Card tags */}
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:creator"
-      content={config.twitter_username ? config.twitter_username : ''}
-    />
+    <meta name="twitter:creator" content={config.twitter_username ? config.twitter_username : ''} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
@@ -100,13 +89,14 @@ SEO.propTypes = {
   url: PropTypes.string.isRequired,
   title: PropTypes.string,
   description: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  image: PropTypes.string,
   siteTitleAlt: PropTypes.string.isRequired,
   isPost: PropTypes.bool.isRequired,
 };
 
 SEO.defaultProps = {
   title: config.title,
+  image: config.iconUrl,
 };
 
 export default SEO;

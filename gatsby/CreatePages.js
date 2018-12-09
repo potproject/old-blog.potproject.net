@@ -28,6 +28,7 @@ module.exports = ({ graphql, actions }) => {
               createdDate
               id
               url
+              redirectPath
             }
           }
         }
@@ -64,10 +65,10 @@ module.exports = ({ graphql, actions }) => {
       }
 
       posts.map(({ node }, index) => {
-        const { createdDate, url } = node;
+        const { createdDate, url, redirectPath } = node;
         const date = dayjs(createdDate).format('YYYY/MM/DD');
         const postPath = url === 'about' ? url : `${date}/${url}`;
-        return createPage({
+        createPage({
           path: postPath,
           component: path.resolve('./src/templates/blog-post.js'),
           context: {
@@ -75,6 +76,16 @@ module.exports = ({ graphql, actions }) => {
             index,
           },
         });
+        if (redirectPath) {
+          createRedirect({
+            fromPath: `/${redirectPath}`,
+            isPermanent: true,
+            redirectInBrowser: true,
+            toPath: `/${postPath}`,
+          });
+          console.log(`Redirecting: /${redirectPath} To: /${postPath}`);
+        }
+        return true;
       });
       return resolve();
     });
