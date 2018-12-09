@@ -63,18 +63,10 @@ class BlogPost extends Component {
     let { id } = this.data.content.edges[0].node;
 
     let finalTitle = title;
-    if (
-      dayjs(createdDate)
-        .locale('ja')
-        .isAfter(issueDate)
-    ) {
+    if (dayjs(createdDate).isAfter(issueDate)) {
       finalTitle = `${title} | ${config.title}`; // For Create Github Issue
 
-      if (
-        dayjs(createdDate)
-          .locale('ja')
-          .isBefore(idDate)
-      ) {
+      if (dayjs(createdDate).isBefore(idDate)) {
         id = md5(title);
       }
     } else {

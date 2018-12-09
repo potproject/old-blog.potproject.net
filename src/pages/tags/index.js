@@ -13,9 +13,9 @@ import { url as baseURL } from '../../../data';
 
 import wrapLayout from '../../api/layout';
 
-const parseDate = date => dayjs(date)
-  .locale('ja')
-  .format('YYYY/MM/DD');
+dayjs.locale('ja');
+
+const parseDate = date => dayjs(date).format('YYYY/MM/DD');
 const tagCenter = 'col-12 col-md-10 col-lg-8 m-auto';
 
 const getTag = (item) => {

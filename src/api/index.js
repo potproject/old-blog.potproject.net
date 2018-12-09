@@ -2,6 +2,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/ja';
 import { config } from '../../data';
 
+dayjs.locale('ja');
 const { maxPostsInPage } = config;
 
 // Prevent webpack window problem
@@ -30,9 +31,7 @@ const getPages = amount => new Array(amount).fill().map((_, index) => `/page/${i
 
 const overflow = () => getCurrentPage() === getMaxPages();
 
-const parseDate = date => dayjs(date)
-  .locale('ja')
-  .format('YYYY/MM/DD');
+const parseDate = date => dayjs(date).format('YYYY/MM/DD');
 
 export {
   isBrowser,

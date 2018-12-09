@@ -2,9 +2,9 @@ import { navigate } from 'gatsby';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ja';
 
-const getUrl = ({ createdDate, url }) => `/${dayjs(createdDate)
-  .locale('ja')
-  .format('YYYY/MM/DD')}/${url}`;
+dayjs.locale('ja');
+
+const getUrl = ({ createdDate, url }) => `/${dayjs(createdDate).format('YYYY/MM/DD')}/${url}`;
 
 const gotoPage = async (url, show = false) => {
   const collapseLink = document.getElementById('collapseNavbarButton');
