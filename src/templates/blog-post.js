@@ -7,6 +7,7 @@ import { graphql } from 'gatsby';
 
 import md5 from 'md5';
 import dayjs from 'dayjs';
+import 'dayjs/locale/ja';
 
 import 'gitalk/dist/gitalk.css';
 

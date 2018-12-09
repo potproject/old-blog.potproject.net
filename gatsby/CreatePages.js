@@ -1,5 +1,6 @@
 const path = require('path');
 const dayjs = require('dayjs');
+require('dayjs/locale/ja');
 const { config } = require('../data');
 
 const { redirectors = [], maxPostsInPage } = config;
@@ -66,7 +67,10 @@ module.exports = ({ graphql, actions }) => {
 
       posts.map(({ node }, index) => {
         const { createdDate, url, redirectPath } = node;
-        const date = dayjs(createdDate).format('YYYY/MM/DD');
+        console.dir(createdDate);
+        const date = dayjs(createdDate)
+          .locale('ja-JP')
+          .format('YYYY/MM/DD');
         const postPath = url === 'about' ? url : `${date}/${url}`;
         createPage({
           path: postPath,

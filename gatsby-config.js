@@ -1,5 +1,6 @@
 /* eslint max-len: 1 */
 const dayjs = require('dayjs');
+require('dayjs/locale/ja');
 const Remarkable = require('remarkable');
 const {
   title, theme_color: themeColor, meta, name, url,
