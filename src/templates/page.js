@@ -21,13 +21,15 @@ const getTitle = (pageNumber = '1') => ` ${pageNumber} ページ`;
 
 const Page = ({ data, location }) => (
   <div className="row homepage">
-    <Header
-      img={data.header.headerImage}
-      title={data.header.title}
-      titleVisible={data.header.titleVisible}
-      subTitle={data.header.subTitle}
-      subTitleVisible={data.header.subTitleVisible}
-    />
+    {false && (
+      <Header
+        img={data.header.headerImage}
+        title={data.header.title}
+        titleVisible={data.header.titleVisible}
+        subTitle={data.header.subTitle}
+        subTitleVisible={data.header.subTitleVisible}
+      />
+    )}
     <Sidebar totalCount={data.latestPosts.totalCount} posts={data.latestPosts.edges} />
     <div className="col-xl-6 col-lg-7 col-md-12 col-xs-12 order-2">
       <div className="row">

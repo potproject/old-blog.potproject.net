@@ -14,14 +14,17 @@ module.exports = {
   posts: {
     defaultHeaderBackgroundColor: '4a913c',
   },
-  name: 'potpro',
+  name: 'potpro (ぽとぷろ)',
   email: '',
   iconUrl: 'https://potproject.net/icon/icon210.png',
   License: 'by',
   url: 'https://blog.potproject.net',
   about: '',
   // Sidebar
-  wordings: ['Full-stuck engineer(Not Full-stack)', ''],
+  wordings: [
+    'Full-stuck engineer(Not Full-stack)',
+    'JS/PHP/Go/Docker/Nginxなど。技術または趣味よりの発信ブログです。このブログ自体も自分がnetlify/gatsbyJS/Reactで書いてます。',
+  ],
   githubUsername: 'potproject',
   twitterUsername: 'potpro',
   mastodonUrl: 'https://mastodon.potproject.net/',
