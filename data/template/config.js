@@ -4,6 +4,7 @@ module.exports = {
   title: 'blog.potproject.net',
   githubRepoName: 'potproject/blog.potproject.net',
   maxPostsInPage: 10,
+  timeZone: 'Asia/Tokyo',
   meta: {
     description: '独り言とか技術的なこと。',
     keyword: 'IT, blog, ブログ, 日記, JavaScript, PHP, Golang',

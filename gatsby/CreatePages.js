@@ -1,11 +1,9 @@
 const path = require('path');
-const dayjs = require('dayjs');
-require('dayjs/locale/ja');
+const moment = require('moment-timezone');
 
-dayjs.locale('ja');
 const { config } = require('../data');
 
-const { redirectors = [], maxPostsInPage } = config;
+const { redirectors = [], maxPostsInPage, timeZone } = config;
 
 module.exports = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
@@ -69,9 +67,9 @@ module.exports = ({ graphql, actions }) => {
 
       posts.map(({ node }, index) => {
         const { createdDate, url, redirectPath } = node;
-        console.dir(createdDate);
-        const date = dayjs(createdDate).format('YYYY/MM/DD');
-        console.dir(dayjs(createdDate).format('YYYY/MM/DDTHH:mm:ssZ[Z]'));
+        const date = moment(createdDate)
+          .tz(timeZone)
+          .format('YYYY/MM/DD');
         const postPath = url === 'about' ? url : `${date}/${url}`;
         createPage({
           path: postPath,

@@ -11,6 +11,7 @@ Homepage:Work in Progress...
 ### General
 
 - Japanese Language Supported.
+- i18n Supported. changed `dayjs` -> `Moment Timezone`
 - Adding params `data/template/config.js`.
 - **Not Using jQuery** And deleted.  
   `bootstrap.js(jQuery)` -> `Bootstrap.native`  

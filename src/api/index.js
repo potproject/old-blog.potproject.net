@@ -1,9 +1,7 @@
-import dayjs from 'dayjs';
-import 'dayjs/locale/ja';
+import moment from 'moment-timezone';
 import { config } from '../../data';
 
-dayjs.locale('ja');
-const { maxPostsInPage } = config;
+const { maxPostsInPage, timeZone } = config;
 
 // Prevent webpack window problem
 const isBrowser = () => typeof window !== 'undefined';
@@ -31,7 +29,9 @@ const getPages = amount => new Array(amount).fill().map((_, index) => `/page/${i
 
 const overflow = () => getCurrentPage() === getMaxPages();
 
-const parseDate = date => dayjs(date).format('YYYY/MM/DD');
+const parseDate = date => moment(date)
+  .tz(timeZone)
+  .format('YYYY/MM/DD');
 
 export {
   isBrowser,

@@ -6,9 +6,8 @@ import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 
 import md5 from 'md5';
-import dayjs from 'dayjs';
-import 'dayjs/locale/ja';
-
+import moment from 'moment-timezone';
+import { config } from '../../data';
 import 'gitalk/dist/gitalk.css';
 
 import { parseDate, getPath } from '../api';
@@ -27,13 +26,11 @@ import ShareBox from '../components/ShareBox';
 import { getUrl } from '../api/url';
 import wrapLayout from '../api/layout';
 
-import { config } from '../../data';
-
 // Styles
 import './blog-post.scss';
 
 const {
-  url, name, iconUrl, gitalk,
+  url, name, iconUrl, gitalk, timeZone,
 } = config;
 
 const bgWhite = { padding: '10px 15px', background: 'white' };
@@ -57,16 +54,30 @@ class BlogPost extends Component {
     // 不過在 2018年 3月 1日 Github 有標籤字數限制
     // 2018年 9月 9日後直接使用 id
 
-    const issueDate = '2018-03-01';
-    const idDate = '2018-09-09'; // 修理遺留代碼錯誤
+    const issueDate = 20180301000000;
+    const idDate = 20180909000000; // 修理遺留代碼錯誤
     const { createdDate, title } = this.data.content.edges[0].node;
     let { id } = this.data.content.edges[0].node;
 
     let finalTitle = title;
-    if (dayjs(createdDate).isAfter(issueDate)) {
+    if (
+      parseInt(
+        moment(createdDate)
+          .tz(timeZone)
+          .format('YYYYMMDDHHmmss'),
+        10,
+      ) > issueDate
+    ) {
       finalTitle = `${title} | ${config.title}`; // For Create Github Issue
 
-      if (dayjs(createdDate).isBefore(idDate)) {
+      if (
+        parseInt(
+          moment(createdDate)
+            .tz(timeZone)
+            .format('YYYYMMDDHHmmss'),
+          10,
+        ) < idDate
+      ) {
         id = md5(title);
       }
     } else {

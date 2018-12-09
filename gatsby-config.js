@@ -1,8 +1,5 @@
 /* eslint max-len: 1 */
-const dayjs = require('dayjs');
-require('dayjs/locale/ja');
-
-dayjs.locale('ja');
+const moment = require('moment-timezone');
 const Remarkable = require('remarkable');
 const {
   title, theme_color: themeColor, meta, name, url,
@@ -10,14 +7,15 @@ const {
 
 const { config } = require('./data/index');
 
+const { timeZone } = config;
 const defaultColor = config.posts.defaultHeaderBackgroundColor;
 
 const { description } = meta;
 
 const extractData = (site, edge) => {
-  const url = `${site.siteMetadata.siteUrl}/${dayjs(edge.node.createdDate).format('YYYY/MM/DD')}/${
-    edge.node.url
-  }`;
+  const url = `${site.siteMetadata.siteUrl}/${moment(edge.node.createdDate)
+    .tz(timeZone)
+    .format('YYYY/MM/DD')}/${edge.node.url}`;
 
   const md = new Remarkable({});
   const descriptionContent = md.render(edge.node.content);
@@ -25,7 +23,9 @@ const extractData = (site, edge) => {
   return {
     title: edge.node.title,
     description: descriptionContent,
-    date: dayjs(edge.node.createdDate).format('MMMM DD, YYYY, h:mm A'),
+    date: moment(edge.node.createdDate)
+      .tz(timeZone)
+      .format('YYYY/MM/DD HH:mm'),
     url,
     guid: url,
   };

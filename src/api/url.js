@@ -1,10 +1,12 @@
 import { navigate } from 'gatsby';
-import dayjs from 'dayjs';
-import 'dayjs/locale/ja';
+import moment from 'moment-timezone';
+import { config } from '../../data';
 
-dayjs.locale('ja');
+const { timeZone } = config;
 
-const getUrl = ({ createdDate, url }) => `/${dayjs(createdDate).format('YYYY/MM/DD')}/${url}`;
+const getUrl = ({ createdDate, url }) => `/${moment(createdDate)
+  .tz(timeZone)
+  .format('YYYY/MM/DD')}/${url}`;
 
 const gotoPage = async (url, show = false) => {
   const collapseLink = document.getElementById('collapseNavbarButton');

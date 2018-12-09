@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import moment from 'moment-timezone';
 import { Link, graphql } from 'gatsby';
-import dayjs from 'dayjs';
-import 'dayjs/locale/ja';
+
 import Tag from '../../components/Tag';
 import Header from '../../components/Header';
 import ShareBox from '../../components/ShareBox';
 import SEO from '../../components/SEO';
 
-import { url as baseURL } from '../../../data';
+import { config, url as baseURL } from '../../../data';
 
 import wrapLayout from '../../api/layout';
 
-dayjs.locale('ja');
+const { timeZone } = config;
 
-const parseDate = date => dayjs(date).format('YYYY/MM/DD');
+const parseDate = date => moment(date)
+  .tz(timeZone)
+  .format('YYYY/MM/DD');
 const tagCenter = 'col-12 col-md-10 col-lg-8 m-auto';
 
 const getTag = (item) => {
