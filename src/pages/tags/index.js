@@ -16,19 +16,19 @@ const parseDate = date => dayjs(date).format('YYYY/MM/DD');
 const tagCenter = 'col-12 col-md-10 col-lg-8 m-auto';
 
 const getTag = (item) => {
-  const { tags, url, createdDate } = item.node;
-
-  if (tags) {
-    const date = parseDate(createdDate);
-    const postPath = url === 'about' ? url : `${date}/${url}`;
-    return {
-      tags: item.node.tags,
-      title: item.node.title,
-      url: postPath,
-      createdDate,
-    };
+  const { url, createdDate } = item.node;
+  let { tags } = item.node;
+  if (!tags) {
+    tags = [];
   }
-  return item;
+  const date = parseDate(createdDate);
+  const postPath = url === 'about' ? url : `${date}/${url}`;
+  return {
+    tags,
+    title: item.node.title,
+    url: postPath,
+    createdDate,
+  };
 };
 
 const lenOf = (array = []) => array.length;

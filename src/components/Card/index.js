@@ -29,7 +29,7 @@ const Card = ({
   title, date, url, headerImage, headerBackgroundColor, content, tags,
 }) => {
   const postUrl = parseUrl(date, url);
-  const finalTags = tags;
+  const finalTags = tags || [];
 
   return (
     <div className="col-sm-12 pb-4">
@@ -51,7 +51,8 @@ const Card = ({
             <p className="d-none d-md-block">
               {content}
 
-...
+
+              ...
             </p>
             <Link to={postUrl} href={postUrl}>
 
