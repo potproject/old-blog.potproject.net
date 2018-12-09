@@ -71,6 +71,7 @@ module.exports = ({ graphql, actions }) => {
         const { createdDate, url, redirectPath } = node;
         console.dir(createdDate);
         const date = dayjs(createdDate).format('YYYY/MM/DD');
+        console.dir(dayjs(createdDate).format('YYYY/MM/DDTHH:mm:ssZ[Z]'));
         const postPath = url === 'about' ? url : `${date}/${url}`;
         createPage({
           path: postPath,
