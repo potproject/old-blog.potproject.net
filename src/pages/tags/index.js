@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import { Link, graphql } from 'gatsby';
 import dayjs from 'dayjs';
-import 'dayjs/locale/ja';
 import Tag from '../../components/Tag';
 import Header from '../../components/Header';
 import ShareBox from '../../components/ShareBox';
@@ -13,7 +12,9 @@ import { url as baseURL } from '../../../data';
 
 import wrapLayout from '../../api/layout';
 
-const parseDate = date => dayjs(date).format('YYYY/MM/DD');
+const parseDate = date => dayjs(date)
+  .locale('ja')
+  .format('YYYY/MM/DD');
 const tagCenter = 'col-12 col-md-10 col-lg-8 m-auto';
 
 const getTag = (item) => {

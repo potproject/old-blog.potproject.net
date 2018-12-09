@@ -7,7 +7,6 @@ import { graphql } from 'gatsby';
 
 import md5 from 'md5';
 import dayjs from 'dayjs';
-import 'dayjs/locale/ja';
 
 import 'gitalk/dist/gitalk.css';
 
@@ -63,10 +62,18 @@ class BlogPost extends Component {
     let { id } = this.data.content.edges[0].node;
 
     let finalTitle = title;
-    if (dayjs(createdDate).isAfter(issueDate)) {
+    if (
+      dayjs(createdDate)
+        .locale('ja')
+        .isAfter(issueDate)
+    ) {
       finalTitle = `${title} | ${config.title}`; // For Create Github Issue
 
-      if (dayjs(createdDate).isBefore(idDate)) {
+      if (
+        dayjs(createdDate)
+          .locale('ja')
+          .isBefore(idDate)
+      ) {
         id = md5(title);
       }
     } else {
