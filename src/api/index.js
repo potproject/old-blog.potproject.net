@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import 'dayjs/locale/ja';
 import { config } from '../../data';
 
 const { maxPostsInPage } = config;

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Link, graphql } from 'gatsby';
 import dayjs from 'dayjs';
+import 'dayjs/locale/ja';
 import Tag from '../../components/Tag';
 import Header from '../../components/Header';
 import ShareBox from '../../components/ShareBox';

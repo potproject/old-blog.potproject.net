@@ -1,5 +1,6 @@
 const path = require('path');
 const dayjs = require('dayjs');
+require('dayjs/locale/ja');
 const { config } = require('../data');
 
 const { redirectors = [], maxPostsInPage } = config;
