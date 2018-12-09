@@ -1,6 +1,5 @@
 import { navigate } from 'gatsby';
 import dayjs from 'dayjs';
-import { Collapse } from 'bootstrap.native';
 
 const getUrl = ({ createdDate, url }) => `/${dayjs(createdDate).format('YYYY/MM/DD')}/${url}`;
 
@@ -10,13 +9,17 @@ const gotoPage = async (url, show = false) => {
     await navigate(url);
     return;
   }
-  const collapseObject = new Collapse(collapseLink);
-  if (show === true) {
-    collapseObject.show();
-  } else {
-    collapseObject.hide();
+  if (typeof window !== 'undefined') {
+    /* eslint-disable global-require */
+    const { Collapse } = require('bootstrap.native');
+    const collapseObject = new Collapse(collapseLink);
+    if (show === true) {
+      collapseObject.show();
+    } else {
+      collapseObject.hide();
+    }
+    await navigate(url);
   }
-  await navigate(url);
 };
 
 const parseMarkdownUrl = (date, rawUrl) => `/${date}/${rawUrl.match(/_posts[/](.*).md/)[1]}/`;
