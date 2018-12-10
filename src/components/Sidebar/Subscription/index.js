@@ -2,7 +2,7 @@ import React from 'react';
 
 const Subscription = () => (
   <div className="subscription">
-    <a href="/feed.xml" className="btn btn-warning" role="button">
+    <a href="/atom.xml" className="btn btn-warning" role="button">
 
 
       feed

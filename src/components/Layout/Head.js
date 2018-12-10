@@ -1,6 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { config } from '../../../data';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'highlight.js/styles/agate.css';
 
 const Head = () => (
   <Helmet defaultTitle={config.title} titleTemplate={`%s | ${config.title}`}>
@@ -22,14 +24,6 @@ const Head = () => (
     />
     <link rel="alternate" type="application/atom+xml" title={config.title} href="/atom.xml" />
     <meta name="google-site-verification" content={config.meta.google_site_verification} />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css"
-    />
   </Helmet>
 );
 

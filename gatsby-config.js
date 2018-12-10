@@ -87,7 +87,7 @@ module.exports = {
                   }
                 }
             `,
-            output: '/feed.xml',
+            output: '/atom.xml',
           },
         ],
       },
