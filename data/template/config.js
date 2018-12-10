@@ -8,9 +8,10 @@ module.exports = {
   meta: {
     description: '独り言とか技術的なこと。',
     keyword: 'IT, blog, ブログ, 日記, JavaScript, PHP, Golang',
-    theme_color: '#384f7c',
+    theme_color: '#4a913c',
     favicon: 'https://potproject.net/icon/icon210.png',
     google_site_verification: '',
+    short_name: 'potpro',
   },
   posts: {
     defaultHeaderBackgroundColor: '4a913c',

@@ -2,9 +2,10 @@
 const moment = require('moment-timezone');
 const Remarkable = require('remarkable');
 const {
-  title, theme_color: themeColor, meta, name, url,
+  title, meta, name, url,
 } = require('./data/template/config');
 
+const { theme_color: themeColor, short_name: shortName } = meta;
 const { config } = require('./data/index');
 
 const { timeZone } = config;
@@ -96,7 +97,7 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: title,
-        short_name: name,
+        short_name: shortName,
         start_url: '/',
         background_color: `#${defaultColor}`,
         theme_color: themeColor,
