@@ -13,36 +13,46 @@ const Header = ({
 }) => (
   <div className="col-12 header" style={{ padding: 0 }} id="header">
     <div
-      className="img-container"
+      className="img-container-bg"
       style={
         img
           ? {
+            backgroundRepeat: 'no-repeat',
             backgroundColor: `#${color}`,
             backgroundImage: `url(${img})`,
-            marginTop: -58,
           }
           : {
             backgroundColor: `#${color}`,
-            marginTop: -58,
           }
       }
     >
-      {title && <h1 className="u-title">{title}</h1>}
-      {subTitle && (
-        <div className="u-subtitle">
-          <div className="m-left">
-            {authorImage && (
-              <img
-                src={parseImgur(authorImage, 'small-square')}
-                className="author-image"
-                alt={authorName}
-              />
-            )}
-            <span className="author-name">{authorName}</span>
+      <div
+        className="img-container"
+        style={
+          img
+            ? {
+              backgroundColor: 'rgba(0,0,0,0.6)',
+            }
+            : {}
+        }
+      >
+        {title && <h1 className="u-title">{title}</h1>}
+        {subTitle && (
+          <div className="u-subtitle">
+            <div className="m-left">
+              {authorImage && (
+                <img
+                  src={parseImgur(authorImage, 'small-square')}
+                  className="author-image"
+                  alt={authorName}
+                />
+              )}
+              <span className="author-name">{authorName}</span>
+            </div>
+            <span className="text">{subTitle}</span>
           </div>
-          <span className="text">{subTitle}</span>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   </div>
 );

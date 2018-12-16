@@ -44,11 +44,13 @@
   }
 }
 
+.img-container-bg {
+  background-position: center top;
+  margin-top: -58px;
+}
 .img-container {
   $height: 500px;
   $width: 1920px;
-
-  background-repeat: no-repeat;
   @media (min-width: 768px) {
     min-height: $height;
   }
@@ -56,8 +58,6 @@
   @media (max-width: 767.98px) {
     background-size: cover;
   }
-  background-position: center top;
-
   margin-bottom: 10px;
 
   display: flex;
