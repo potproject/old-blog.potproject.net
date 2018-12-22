@@ -49,8 +49,9 @@ const getContent = async (mdFile) => {
 
   md.renderer.rules.heading_open = (tokens, idx) => {
     const id = extractId(tokens[idx + 1].content);
-    toc.push(id);
-    return `<h${tokens[idx].hLevel} id=${id}>`;
+    const level = tokens[idx].hLevel;
+    toc.push({ id, level });
+    return `<h${level} id=${id}>`;
   };
 
   md.renderer.rules.table_open = () => '<div class="table-responsive"><table class="table table-striped">';

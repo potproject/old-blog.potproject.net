@@ -100,7 +100,6 @@ class BlogPost extends Component {
     const {
       title, headerImgur, createdDate, content, id, toc, tags,
     } = node;
-
     const { totalCount, edges } = this.data.latestPosts;
 
     const finalTags = tags;
@@ -179,7 +178,10 @@ export const pageQuery = graphql`
         node {
           content: html
           headerImgur
-          toc
+          toc {
+            id
+            level
+          }
           tags
         }
         previous {
