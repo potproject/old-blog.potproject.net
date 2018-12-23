@@ -21,12 +21,13 @@ const {
   name,
 } = config;
 
-const Icon = ({ href, icon }) => (
+const Icon = ({ href, icon, title }) => (
   <a
     target="_blank"
     href={href}
     rel="external nofollow noopener noreferrer"
     className="custom-icon"
+    title={title === '' ? href : title}
   >
     <span className="fa-layers fa-fw fa-2x">
       <FontAwesomeIcon icon={icon} />
@@ -47,9 +48,17 @@ const Sidebar = ({ post, totalCount, posts }) => (
       </Link>
       <p className="mb-1">{wordings[0]}</p>
       <p className="mb-3">{wordings[1]}</p>
-      <Icon href={`https://github.com/${githubUsername}`} icon={['fab', 'github']} />
-      <Icon href={mastodonUrl} icon={['fab', 'mastodon']} />
-      <Icon href={`https://twitter.com/${twitterUsername}`} icon={['fab', 'twitter']} />
+      <Icon
+        href={`https://github.com/${githubUsername}`}
+        icon={['fab', 'github']}
+        title="github Link"
+      />
+      <Icon href={mastodonUrl} icon={['fab', 'mastodon']} title="mastodon Link" />
+      <Icon
+        href={`https://twitter.com/${twitterUsername}`}
+        icon={['fab', 'twitter']}
+        title="twitter Link"
+      />
       {false && <Icon href={`mailto:${email}`} icon={['far', 'envelope']} />}
       <Subscription />
       <Information totalCount={totalCount} posts={posts} />
@@ -60,6 +69,7 @@ const Sidebar = ({ post, totalCount, posts }) => (
 Icon.propTypes = {
   href: PropTypes.string.isRequired,
   icon: PropTypes.arrayOf(PropTypes.string).isRequired,
+  title: PropTypes.string,
 };
 
 Sidebar.propTypes = {
@@ -71,6 +81,10 @@ Sidebar.propTypes = {
 Sidebar.defaultProps = {
   post: false,
   totalCount: 0,
+};
+
+Icon.defaultProps = {
+  title: '',
 };
 
 export default Sidebar;

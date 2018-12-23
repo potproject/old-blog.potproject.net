@@ -45,7 +45,7 @@ const Card = ({
                 <Tag name={tag} key={tag} />
               ))}
             </div>
-            <Link to={postUrl} href={postUrl}>
+            <Link to={postUrl} href={postUrl} title={title}>
               <h4 className="title">{title}</h4>
             </Link>
             <p className="d-none d-md-block">

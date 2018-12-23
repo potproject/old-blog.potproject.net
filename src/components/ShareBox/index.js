@@ -9,6 +9,7 @@ import './index.scss';
 const CommentButton = () => (
   <a
     className="share-button"
+    title="Comment"
     style={{
       lineHeight: '1.7rem',
       color: '#337ab7',
@@ -30,7 +31,7 @@ const ShareBox = ({ url, hasCommentBox }) => (
     {false && (
       <a
         href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
-        title=""
+        title="Share Facebook"
         className="share-button"
         onClick={() => ReactGA.event({
           category: 'Share',
@@ -45,6 +46,7 @@ const ShareBox = ({ url, hasCommentBox }) => (
     {hasCommentBox && <CommentButton />}
 
     <a
+      title="Scroll to Top"
       className="share-button"
       href="#header"
       onClick={() => {
