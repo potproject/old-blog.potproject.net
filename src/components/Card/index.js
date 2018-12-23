@@ -19,8 +19,10 @@ const imageStyle = (headerImage, color) => ({
   backgroundImage: ` url(${parseImgur(headerImage, 'large')})`,
 });
 
-const CardHeader = ({ url, image, backgroundColor }) => (
-  <Link to={url} href={url}>
+const CardHeader = ({
+  url, image, backgroundColor, title,
+}) => (
+  <Link to={url} href={url} title={title === '' ? url : title}>
     <div className="wrapper" style={imageStyle(image, backgroundColor)} />
   </Link>
 );
@@ -35,7 +37,12 @@ const Card = ({
     <div className="col-sm-12 pb-4">
       <div className="custom-card">
         {headerImage && (
-          <CardHeader url={postUrl} image={headerImage} backgroundColor={headerBackgroundColor} />
+          <CardHeader
+            url={postUrl}
+            image={headerImage}
+            backgroundColor={headerBackgroundColor}
+            title={title}
+          />
         )}
         <div className="data">
           <div className="content">
@@ -79,10 +86,12 @@ CardHeader.propTypes = {
   url: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   backgroundColor: PropTypes.string,
+  title: PropTypes.string,
 };
 
 CardHeader.defaultProps = {
   backgroundColor: defaultColor,
+  title: '',
 };
 
 Card.defaultProps = {
