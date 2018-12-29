@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { parseImgur } from '../../api/images';
 
@@ -12,5 +13,11 @@ const Image = ({ href, title, text }) => (
     alt={title || text}
   />
 );
+
+Image.propTypes = {
+  href: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
 
 export default Image;

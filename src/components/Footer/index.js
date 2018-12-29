@@ -11,44 +11,26 @@ const Footer = () => (
       <div className="row">
         <div className="col-sm-12 text-center">
           <p className="architecture">
-
-
-            Build with&nbsp;
+            {'Build with '}
             <ExternalLink href="https://www.gatsbyjs.org/" title="GatsbyJS" />
-
-
-            &nbsp;and&nbsp;
+            {' and '}
             <ExternalLink href="https://reactjs.org/" title={`React ${React.version}`} />
-
-
-            .&nbsp;Hosted on&nbsp;
+            {'. Hosted on '}
             <ExternalLink href="https://www.netlify.com/" title="Netlify" />
             <br />
-
-
-            The code is open source and available at&nbsp;
+            {'The code is open source and available at '}
             <ExternalLink href={`https://github.com/${githubRepoName}`} title={githubRepoName} />
 
-
-            &nbsp;based by&nbsp;
+            {' based by '}
             <ExternalLink
               href="https://github.com/calpa/gatsby-starter-calpa-blog"
               title="calpa/gatsby-starter-calpa-blog"
             />
           </p>
           <p className="copyright">
-
-
-            Copyright&nbsp;
+            {'Copyright '}
             <ExternalLink href={url} title={title} />
-
-
-            &nbsp;
-            {title}
-
-
-            &nbsp;
-            {new Date().getFullYear()}
+            {` ${title} ${new Date().getFullYear()}`}
           </p>
         </div>
       </div>

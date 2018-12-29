@@ -7,7 +7,7 @@ import { isBrowser } from '../../api';
 class Content extends Component {
   constructor(props) {
     super(props);
-    this.post = this.props.post;
+    this.post = props.post;
   }
 
   componentDidMount() {
@@ -32,9 +32,11 @@ class Content extends Component {
   }
 
   render() {
+    const { post } = this.props;
     return (
       <div
-        dangerouslySetInnerHTML={{ __html: this.props.post }}
+        /* eslint-disable react/no-danger */
+        dangerouslySetInnerHTML={{ __html: post }}
         style={{
           padding: 15,
           background: 'white',

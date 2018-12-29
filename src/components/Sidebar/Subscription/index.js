@@ -3,9 +3,7 @@ import React from 'react';
 const Subscription = () => (
   <div className="subscription">
     <a href="/atom.xml" className="btn btn-warning" role="button">
-
-
-      feed
+      {'feed'}
     </a>
   </div>
 );

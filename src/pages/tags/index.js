@@ -162,13 +162,9 @@ class TagPage extends Component {
 
         <div className={tagCenter}>
           <h2 style={{ ...style, justifyContent: 'space-between' }}>
-
-
-            最も人気のあるタグ：
+            {'最も人気のあるタグ：'}
             <button type="button" className="btn btn-info" onClick={() => this.toggleAllTags()}>
-
-
-              すべてのタグを表示する
+              {'すべてのタグを表示する'}
             </button>
           </h2>
 
@@ -212,14 +208,16 @@ class TagPage extends Component {
 TagPage.propTypes = {
   data: PropTypes.shape({
     tags: PropTypes.shape({
-      edges: PropTypes.shape({
-        node: PropTypes.shape({
-          tags: PropTypes.string,
-          title: PropTypes.string,
-          url: PropTypes.string,
-          createdDate: PropTypes.string,
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            tags: PropTypes.arrayOf(PropTypes.string),
+            title: PropTypes.string,
+            url: PropTypes.string,
+            createdDate: PropTypes.string,
+          }),
         }),
-      }),
+      ),
     }),
   }).isRequired,
   location: PropTypes.shape({
