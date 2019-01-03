@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
+import './index.scss';
+
 const Dropdown = ({ pages, text }) => (
   <div className="dropdown show page-item">
     <button

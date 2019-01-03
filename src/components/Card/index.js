@@ -56,7 +56,7 @@ const Card = ({
               <h4 className="title">{title}</h4>
             </Link>
             <p className="d-none d-md-block">{`${content}...`}</p>
-            <Link to={postUrl} href={postUrl}>
+            <Link className="more-link" to={postUrl} href={postUrl}>
               {'本文を見る'}
             </Link>
           </div>
