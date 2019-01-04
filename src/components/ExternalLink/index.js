@@ -2,8 +2,6 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import './index.scss';
-
 const ExternalLink = ({
   href, title, target, rel,
 }) => (
