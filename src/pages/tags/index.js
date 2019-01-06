@@ -162,7 +162,7 @@ class TagPage extends Component {
 
         <div className={tagCenter}>
           <h2 style={{ ...style, justifyContent: 'space-between' }}>
-            {'最も人気のあるタグ：'}
+            {'最も記事の多いタグ：'}
             <button type="button" className="btn btn-info" onClick={() => this.toggleAllTags()}>
               {'すべてのタグを表示する'}
             </button>
