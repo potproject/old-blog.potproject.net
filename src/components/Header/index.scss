@@ -51,7 +51,9 @@
 .img-container {
   $height: 500px;
   $width: 1920px;
+
   @media (min-width: 768px) {
+    height: $height;
     min-height: $height;
   }
 
