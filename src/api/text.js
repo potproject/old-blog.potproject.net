@@ -4,19 +4,26 @@ const { escapeHtml, replaceEntities } = require('remarkable/lib/common/utils');
 const { getGalleryImage } = require('./images');
 const hljs = require('highlight.js/lib/highlight');
 
+const { availableLanguages } = require('../../data/template/config');
+
 const beautifyCode = (code, language = 'javascript') => {
-  ['javascript', 'bash'].forEach((langName) => {
+  Object.keys(availableLanguages).forEach((key) => {
+    if (!availableLanguages[key]) {
+      return;
+    }
+    const langName = availableLanguages[key];
     // Using require() here because import() support hasn't landed in Webpack yet
     // eslint-disable-next-line global-require, import/no-dynamic-require
     const langModule = require(`highlight.js/lib/languages/${langName}`);
     hljs.registerLanguage(langName, langModule);
   });
+  const lang = availableLanguages[language] ? availableLanguages[language] : language;
   // Check whether the given language is valid for highlight.js.
-  const validLang = !!(language && hljs.getLanguage(language));
+  const validLang = !!(lang && hljs.getLanguage(lang));
   // Highlight only if the language is valid.
-  const highlighted = validLang ? hljs.highlight(language, code).value : code;
+  const highlighted = validLang ? hljs.highlight(lang, code, true).value : code;
   // Render the highlighted code with `hljs` class.
-  return `<pre><code class="hljs ${language}">${highlighted}</code></pre>`;
+  return `<pre><code class="hljs ${lang}">${highlighted}</code></pre>`;
 };
 
 const extractId = (text = '') => {
