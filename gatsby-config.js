@@ -110,7 +110,16 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-offline', // put this after gatsby-plugin-manifest
+
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        importWorkboxFrom: 'local',
+        cacheId: 'blog-offline',
+        skipWaiting: true,
+        clientsClaim: true,
+      },
+    },
     'gatsby-plugin-netlify', // make sure to put last in the array
   ],
 };
