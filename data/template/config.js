@@ -18,6 +18,8 @@ module.exports = {
     shell: 'bash',
     yaml: 'yaml',
     yml: 'yaml',
+    nginx: 'nginx',
+    conf: 'nginx',
     json: 'json',
   },
   meta: {
