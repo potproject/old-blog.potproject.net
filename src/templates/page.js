@@ -17,7 +17,7 @@ import { config } from '../../data/index';
 const defaultColor = config.posts.defaultHeaderBackgroundColor;
 const { title, iconUrl, meta } = config;
 const { description } = meta;
-const getTitle = (pageNumber = '1') => ` ${pageNumber} ページ`;
+const getTitle = (pageNumber = '1') => (pageNumber === '1' ? '' : ` ${pageNumber} ページ`);
 
 const Page = ({ data, location }) => (
   <div className="row homepage">
