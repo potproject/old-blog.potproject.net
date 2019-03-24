@@ -1,6 +1,6 @@
 {
-  "name": "blog",
-  "description": "blog.potproject.net",
+  "name": "blog.potproject.net",
+  "description": "My Blog (GatsByJS/Contentful) https://blog.potproject.net/",
   "version": "1.0.0",
   "author": "potproject",
   "dependencies": {
@@ -39,8 +39,8 @@
     "md5": "^2.2.1",
     "moment-timezone": "^0.5.23",
     "node-sass": "^4.11.0",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
     "react-ga": "^2.5.7",
     "react-helmet": "^5.2.0",
     "remarkable": "^1.7.1",

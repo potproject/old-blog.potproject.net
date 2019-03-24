@@ -19,7 +19,7 @@ Homepage: https://blog.potproject.net/
 - Adding params `data/template/config.js`.
 - Disabled Google Analytics.
 - Deleted Pages.
-- Package update.
+- Package update. `npm` -> `yarn`
 
 ### Perfomance fix
 
