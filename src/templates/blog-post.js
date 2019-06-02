@@ -85,7 +85,8 @@ class BlogPost extends Component {
       const lastSymbol = pathname[pathname.length - 1] === '/' ? '' : '/';
       id = `${url}${pathname}${lastSymbol}`;
     }
-
+    gitalk.clientID = process.env.GITHUB_AUTH_CLIENTID || '';
+    gitalk.clientSecret = process.env.GITHUB_AUTH_CLIENTSECRET || '';
     const GitTalkInstance = new Gitalk({
       ...gitalk,
       title: finalTitle,

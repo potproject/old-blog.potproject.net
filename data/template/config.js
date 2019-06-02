@@ -42,16 +42,16 @@ module.exports = {
   // Sidebar
   wordings: [
     'Full-stuck engineer(Not Full-stack)',
-    'JS/PHP/Go/Docker/Nginxなど。技術または趣味よりの発信ブログです。このブログ自体も自分がnetlify/gatsbyJS/Reactで書いてます。',
+    'JS/PHP/Go/Docker/Nginxなど。技術または趣味よりの発信ブログです。このブログ自体も自分がnetlify/gatsbyJS/Reactで書いてます。一部の記事はgithubアカウントでコメントできます。',
   ],
   githubUsername: 'potproject',
   twitterUsername: 'potpro',
   mastodonUrl: 'https://mastodon.potproject.net/',
   friends: [],
   // Plugins
-  usingGA: false,
-  gaOptimizeId: '',
-  gaTrackId: '',
+  usingGA: true,
+  // gaOptimizeId: '', -> move to .env[GA_TRACKING_ID]
+  // gaTrackId: '', -> move to .env[GA_OPTIMIZE_ID]
   navbarList: [
     //  {
     //    href: '/stats/',
@@ -60,8 +60,8 @@ module.exports = {
   ],
   redirectors: [...redirect],
   gitalk: {
-    clientID: 'ff1d48da242250d67f88',
-    clientSecret: '2881c83d3bb83f54c7c5cbd0a9bdc89edb2b6a29',
+    // clientID: 'SECRET', -> move to .env[GITHUB_AUTH_CLIENTID]
+    // clientSecret: 'SECRET', -> move to .env[GITHUB_AUTH_CLIENTSECRET]
     repo: 'blog.potproject.net',
     owner: 'potproject',
     admin: ['potproject'],

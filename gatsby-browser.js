@@ -5,9 +5,9 @@ import { config } from './data';
 
 import installFontAwesome from './src/api/installFontAwesome';
 
-const {
-  url, gaTrackId, gaOptimizeId, usingGA,
-} = config;
+const { url, usingGA } = config;
+const gaTrackId = process.env.GA_TRACKING_ID || '';
+const gaOptimizeId = process.env.GA_OPTIMIZE_ID || '';
 
 installFontAwesome();
 

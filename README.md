@@ -10,6 +10,8 @@ Homepage: https://blog.potproject.net/
 
 [![Hosting by Netlify](https://www.netlify.com/img/global/badges/netlify-color-bg.svg)](https://www.netlify.com)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7044dacd-270b-4cdf-b5ea-4325248472fc/deploy-status)](https://app.netlify.com/sites/blog-potproject-net/deploys)
+
 ## Changed
 
 ### General
