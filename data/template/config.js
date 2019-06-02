@@ -48,10 +48,6 @@ module.exports = {
   twitterUsername: 'potpro',
   mastodonUrl: 'https://mastodon.potproject.net/',
   friends: [],
-  // Plugins
-  usingGA: true,
-  // gaOptimizeId: '', -> move to .env[GA_TRACKING_ID]
-  // gaTrackId: '', -> move to .env[GA_OPTIMIZE_ID]
   navbarList: [
     //  {
     //    href: '/stats/',

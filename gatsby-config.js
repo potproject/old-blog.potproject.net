@@ -52,6 +52,13 @@ module.exports = {
       resolve: 'gatsby-plugin-nprogress',
     },
     {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: process.env.GA_TRACKING_ID || '',
+        optimizeId: process.env.GA_OPTIMIZE_ID || '',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-feed',
       options: {
         query: `

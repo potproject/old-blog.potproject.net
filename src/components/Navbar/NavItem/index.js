@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import ReactGA from 'react-ga';
 
 import Dropdown from './Dropdown';
 import { gotoPage } from '../../../api/url';
@@ -16,10 +15,6 @@ const NavItem = ({ url, name, list }) => {
         href={url}
         to={url}
         onClick={() => {
-          ReactGA.event({
-            category: 'User',
-            action: `Click nav-menu: ${name}`,
-          });
           gotoPage(url);
         }}
       >
