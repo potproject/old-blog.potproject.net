@@ -45,12 +45,8 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-webpack-bundle-analyzer',
-    {
-      resolve: 'gatsby-plugin-sitemap',
-    },
-    {
-      resolve: 'gatsby-plugin-nprogress',
-    },
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-nprogress',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
