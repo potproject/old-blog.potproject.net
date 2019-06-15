@@ -60,13 +60,13 @@
     }
   },
   "scripts": {
-    "start": "npm run fetch:config && npm run develop",
-    "build": "npm run fetch:config && gatsby build --prefix-paths",
+    "start": "yarn fetch:config && yarn develop",
+    "build": "yarn fetch:config && gatsby build --prefix-paths",
     "fetch:config": "set NODE_ENV=development node ./scripts/index.js",
     "postbuild": "rimraf public/**/*.map",
     "develop": "gatsby develop",
     "develop:remote": "gatsby develop -p 8080 -H 0.0.0.0",
-    "deploy": "npm run build && gh-pages -d public",
+    "deploy": "yarn build && gh-pages -d public",
     "format": "eslint --fix --ignore-path .gitignore .",
     "format-style": "stylelint src/**/*.scss --syntax=scss",
     "test": "echo \"Error: no test specified\" && exit 1",
