@@ -16,6 +16,7 @@ module.exports = {
     python: 'python',
     bash: 'bash',
     shell: 'bash',
+    sh: 'bash',
     yaml: 'yaml',
     yml: 'yaml',
     nginx: 'nginx',
@@ -24,7 +25,7 @@ module.exports = {
   },
   meta: {
     description: '独り言とか技術的なこと。',
-    keyword: 'IT, blog, ブログ, 日記, JavaScript, PHP, Golang',
+    keyword: 'IT, blog, ブログ, 日記, JavaScript, PHP, Golang, Docker',
     theme_color: '#4a913c',
     favicon: 'https://potproject.net/icon/icon210.png',
     google_site_verification: '',
