@@ -1,4 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies, import/order, import/no-self-import */
+const md5 = require('md5');
 const Remarkable = require('remarkable');
 const { escapeHtml, replaceEntities } = require('remarkable/lib/common/utils');
 const { getGalleryImage } = require('./images');
@@ -26,6 +27,7 @@ const beautifyCode = (code, language = 'javascript') => {
   return `<pre><code class="hljs ${lang}">${highlighted}</code></pre>`;
 };
 
+/*
 const extractId = (text = '') => {
   let id;
   const link = text.match(/<a.*>(.*)<\/a>/);
@@ -40,6 +42,7 @@ const extractId = (text = '') => {
   }
   return id;
 };
+*/
 
 const getContent = async (mdFile) => {
   const toc = [];
@@ -55,9 +58,14 @@ const getContent = async (mdFile) => {
   };
 
   md.renderer.rules.heading_open = (tokens, idx) => {
-    const id = extractId(tokens[idx + 1].content);
+    const id = md5(tokens[idx + 1].content);
+    const name = tokens[idx + 1].content;
     const level = tokens[idx].hLevel;
-    toc.push({ id, level });
+    toc.push({
+      id,
+      name,
+      level,
+    });
     return `<h${level} id=${id}>`;
   };
 

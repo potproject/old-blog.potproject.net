@@ -182,6 +182,7 @@ export const pageQuery = graphql`
           headerImgur
           toc {
             id
+            name
             level
           }
           tags
