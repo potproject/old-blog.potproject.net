@@ -117,7 +117,6 @@ class BlogPost extends Component {
           authorImage={iconUrl}
           subTitle={parseDate(createdDate)}
         />
-        {console.log(edges)}
         <Sidebar totalCount={totalCount} posts={edges} post />
         <div className="col-lg-6 col-md-12 col-sm-12 order-10 d-flex flex-column content">
           <Content post={content} uuid={id} title={title} />
