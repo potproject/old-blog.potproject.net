@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { config } from '../../../data';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './font.scss';
 import 'highlight.js/styles/agate.css';
 
 const Head = () => (
