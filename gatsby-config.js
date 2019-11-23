@@ -123,6 +123,12 @@ module.exports = {
         clientsClaim: true,
       },
     },
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://blog.potproject.net',
+      },
+    },
     'gatsby-plugin-netlify', // make sure to put last in the array
   ],
 };
