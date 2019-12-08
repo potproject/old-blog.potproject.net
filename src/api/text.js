@@ -1,11 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies, import/order, import/no-self-import */
 const md5 = require('md5');
-const Remarkable = require('remarkable');
-const { escapeHtml, replaceEntities } = require('remarkable/lib/common/utils');
+const { Remarkable, utils } = require('remarkable');
 const { getGalleryImage } = require('./images');
 const hljs = require('highlight.js/lib/highlight');
 
 const { availableLanguages } = require('../../data/template/config');
+
+const { escapeHtml, replaceEntities } = utils;
 
 const beautifyCode = (code, language = 'javascript') => {
   Object.keys(availableLanguages).forEach((key) => {
@@ -53,7 +54,7 @@ const getContent = async (mdFile) => {
   });
 
   md.renderer.rules.image = (tokens, idx) => {
-    const { src, title, alt } = Remarkable.utils.escapeHtml(tokens[idx]);
+    const { src, title, alt } = escapeHtml(tokens[idx]);
     return getGalleryImage({ href: src, title, text: alt });
   };
 

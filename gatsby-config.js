@@ -1,6 +1,6 @@
 /* eslint max-len: 1 */
 const moment = require('moment-timezone');
-const Remarkable = require('remarkable');
+const { Remarkable } = require('remarkable');
 const {
   title, meta, name, url,
 } = require('./data/template/config');
