@@ -1,6 +1,6 @@
 /* eslint max-len: 1 */
 const moment = require('moment-timezone');
-const Remarkable = require('remarkable');
+const { Remarkable } = require('remarkable');
 const {
   title, meta, name, url,
 } = require('./data/template/config');
@@ -70,7 +70,7 @@ module.exports = {
         }`,
         feeds: [
           {
-            serialize: ({ query: { site, allPostMarkdown } }) => allPostMarkdown.edges.map(edge => extractData(site, edge)),
+            serialize: ({ query: { site, allPostMarkdown } }) => allPostMarkdown.edges.map((edge) => extractData(site, edge)),
             query: `
               {
                   allPostMarkdown(limit: 10,sort: {fields: [createdDate], order: DESC}) {
@@ -99,6 +99,7 @@ module.exports = {
         background_color: `#${defaultColor}`,
         theme_color: themeColor,
         display: 'standalone',
+        icon: './static/favicons/favicon.png',
         icons: [
           {
             src: '/favicons/android-chrome-192x192.png',
@@ -121,6 +122,12 @@ module.exports = {
         cacheId: 'blog-offline',
         skipWaiting: true,
         clientsClaim: true,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://blog.potproject.net',
       },
     },
     'gatsby-plugin-netlify', // make sure to put last in the array

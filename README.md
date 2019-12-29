@@ -19,7 +19,7 @@ Homepage: https://blog.potproject.net/
 - Japanese Language Supported.
 - i18n Supported. changed `dayjs` -> `Moment Timezone`
 - Adding params `data/template/config.js`.
-- Disabled Google Analytics.
+- Using libraries `gatsby-plugin-google-analytics`
 - Deleted Pages.
 - Package update. `npm` -> `yarn`
 
