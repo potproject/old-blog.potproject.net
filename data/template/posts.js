@@ -2,7 +2,7 @@ const data = {
   items: [
     {
       sys: {
-        id: 'czxkcjzxc',
+        id: 'zsefvgy',
         createdAt: '2017-09-21T06:01:35.114Z',
         updatedAt: '2017-09-21T06:01:35.114Z',
         contentType: {
@@ -12,14 +12,14 @@ const data = {
             id: 'blogPost',
           },
         },
-        locale: 'zh-Hant',
+        locale: 'ja-jp',
       },
       fields: {
         title: 'Blog Title',
         tags: ['JavaScript'],
         url: 'your-awesome-blog-post-url',
         createdDate: `${new Date()}`,
-        content: '## 前言\n\nContent\n\n## abcd\n\ncontent1123123',
+        content: '## Test\n\nContent\n\n## abcd\n\ncontent1123123',
         headerImgur: 'https://i.imgur.com/gf1pKau.png',
         headerBackgroundColor: '4a913c',
         redirectPath: '',
