@@ -48,7 +48,9 @@
     "webpack": "^4.41.2"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "blog",
+    "contentful"
   ],
   "license": "MIT",
   "main": "n/a",
