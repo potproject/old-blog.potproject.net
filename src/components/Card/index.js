@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
+import lozad from 'lozad';
 
 import Tag from '../Tag';
 
+import { isBrowser } from '../../api';
 import { parseImgur } from '../../api/images';
 
 import './index.scss';
@@ -14,18 +16,44 @@ import { config } from '../../../data';
 
 const defaultColor = config.posts.defaultHeaderBackgroundColor;
 
-const imageStyle = (headerImage, color) => ({
-  backgroundColor: `#${color}`,
-  backgroundImage: ` url(${parseImgur(headerImage, 'large')})`,
-});
+const imageStyle = (headerImage, color) => {
+  if (headerImage === null) {
+    return { backgroundImage: ` url(${parseImgur(headerImage, 'large')})` };
+  }
+  return {
+    backgroundColor: `#${color}`,
+    backgroundImage: ` url(${parseImgur(headerImage, 'large')})`,
+  };
+};
 
-const CardHeader = ({
-  url, image, backgroundColor, title,
-}) => (
-  <Link to={url} href={url} title={title === '' ? url : title}>
-    <div className="wrapper" style={imageStyle(image, backgroundColor)} />
-  </Link>
-);
+class CardHeader extends Component {
+  constructor(props) {
+    super(props);
+    this.url = props.url;
+    this.image = props.image;
+    this.backgroundColor = props.backgroundColor;
+    this.title = props.title;
+    this.state = { loaded: false };
+  }
+
+  componentDidMount() {
+    if (isBrowser()) {
+      const observer = lozad(this.el, {
+        load: () => (this.setState({ loaded: true })),
+      });
+      observer.observe();
+    }
+  }
+
+  render() {
+    const { loaded } = this.state;
+    return (
+      <Link to={this.url} href={this.url} title={this.title === '' ? this.url : this.title}>
+        <div ref={(el) => { this.el = el; }} className="wrapper" style={imageStyle(loaded ? this.image : null, this.backgroundColor)} />
+      </Link>
+    );
+  }
+}
 
 const Card = ({
   title, date, url, headerImage, headerBackgroundColor, content, tags,
@@ -48,7 +76,7 @@ const Card = ({
           <div className="content">
             <div className="stats">
               <span className="date">{date}</span>
-              {finalTags.map(tag => (
+              {finalTags.map((tag) => (
                 <Tag name={tag} key={tag} />
               ))}
             </div>
@@ -57,7 +85,7 @@ const Card = ({
             </Link>
             <p className="d-none d-md-block">{`${content}...`}</p>
             <Link className="more-link" to={postUrl} href={postUrl}>
-              {'本文を見る'}
+              本文を見る
             </Link>
           </div>
         </div>

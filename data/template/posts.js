@@ -20,7 +20,7 @@ const data = {
         url: 'your-awesome-blog-post-url',
         createdDate: `${new Date()}`,
         content: '## Test\n\nContent\n\n## abcd\n\ncontent1123123',
-        headerImgur: 'https://i.imgur.com/gf1pKau.png',
+        headerImgur: 'https://potproject.net/icon/icon210.png',
         headerBackgroundColor: '4a913c',
         redirectPath: '',
       },
