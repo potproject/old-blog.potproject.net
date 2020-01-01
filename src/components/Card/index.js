@@ -39,6 +39,7 @@ class CardHeader extends Component {
   componentDidMount() {
     if (isBrowser()) {
       const observer = lozad(this.el, {
+        rootMargin: '100px 0px',
         load: () => (this.setState({ loaded: true })),
       });
       observer.observe();
