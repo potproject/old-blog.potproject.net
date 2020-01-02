@@ -18,7 +18,7 @@ const defaultColor = config.posts.defaultHeaderBackgroundColor;
 
 const imageStyle = (headerImage, color) => {
   if (headerImage === null) {
-    return { backgroundImage: ` url(${parseImgur(headerImage, 'large')})` };
+    return { backgroundColor: `#${color}` };
   }
   return {
     backgroundColor: `#${color}`,
