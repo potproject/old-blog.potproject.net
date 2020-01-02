@@ -16,6 +16,7 @@ class Content extends Component {
     if (isBrowser()) {
       // Initialize library
       const observer = lozad('.lozad', {
+        rootMargin: '100px 0px',
         load(el) {
           /* eslint-disable no-param-reassign */
 
