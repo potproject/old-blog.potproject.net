@@ -16,7 +16,9 @@ class StatsPage extends Component {
   }
 
   componentDidMount() {
-    const observer = lozad();
+    const observer = lozad({
+      rootMargin: '100px 0px'
+    });
     observer.observe();
   }
 
