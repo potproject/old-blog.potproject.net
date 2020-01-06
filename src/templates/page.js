@@ -45,6 +45,7 @@ const Page = ({ data, location }) => (
             index={index}
             content={getFirstParagraph(node.content)}
             tags={node.tags}
+            async={index > 1}
           />
         ))}
       </div>

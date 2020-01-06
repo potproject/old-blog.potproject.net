@@ -33,7 +33,7 @@ class CardHeader extends Component {
     this.image = props.image;
     this.backgroundColor = props.backgroundColor;
     this.title = props.title;
-    this.state = { loaded: false };
+    this.state = { loaded: !props.async };
   }
 
   componentDidMount() {
@@ -57,7 +57,7 @@ class CardHeader extends Component {
 }
 
 const Card = ({
-  title, date, url, headerImage, headerBackgroundColor, content, tags,
+  title, date, url, headerImage, headerBackgroundColor, content, tags, async,
 }) => {
   const postUrl = parseUrl(date, url);
   const finalTags = tags || [];
@@ -71,6 +71,7 @@ const Card = ({
             image={headerImage}
             backgroundColor={headerBackgroundColor}
             title={title}
+            async={async}
           />
         )}
         <div className="data">
@@ -102,6 +103,7 @@ Card.propTypes = {
   headerBackgroundColor: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
+  async: PropTypes.bool,
 };
 
 CardHeader.propTypes = {
@@ -109,16 +111,19 @@ CardHeader.propTypes = {
   image: PropTypes.string.isRequired,
   backgroundColor: PropTypes.string,
   title: PropTypes.string,
+  async: PropTypes.bool,
 };
 
 CardHeader.defaultProps = {
   backgroundColor: defaultColor,
   title: '',
+  async: true,
 };
 
 Card.defaultProps = {
   headerImage: '',
   tags: [],
+  async: true,
 };
 
 export default Card;
