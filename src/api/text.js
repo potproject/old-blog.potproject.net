@@ -51,6 +51,7 @@ const getContent = async (mdFile) => {
     highlight(str, lang) {
       return beautifyCode(str, lang);
     },
+    html: true,
   });
 
   md.renderer.rules.image = (tokens, idx) => {
@@ -88,6 +89,7 @@ const getContent = async (mdFile) => {
   };
 
   const html = md.render(mdFile);
+  console.log(html);
   return { html, toc };
 };
 

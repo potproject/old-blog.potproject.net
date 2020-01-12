@@ -18,7 +18,9 @@ const extractData = (site, edge) => {
     .tz(timeZone)
     .format('YYYY/MM/DD')}/${edge.node.url}`;
 
-  const md = new Remarkable({});
+  const md = new Remarkable({
+    html: true,
+  });
   const descriptionContent = md.render(edge.node.content);
 
   return {
