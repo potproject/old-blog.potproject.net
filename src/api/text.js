@@ -28,23 +28,6 @@ const beautifyCode = (code, language = 'javascript') => {
   return `<pre><code class="hljs ${lang}">${highlighted}</code></pre>`;
 };
 
-/*
-const extractId = (text = '') => {
-  let id;
-  const link = text.match(/<a.*>(.*)<\/a>/);
-  if (link) {
-    [id] = link;
-  } else {
-    // Extract Chinese and English wordings
-    const temp = text.match(/[\u4e00-\u9fa5\S]+/g);
-    if (temp) {
-      id = temp.join('');
-    }
-  }
-  return id;
-};
-*/
-
 const getContent = async (mdFile) => {
   const toc = [];
   const md = new Remarkable({

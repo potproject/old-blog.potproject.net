@@ -31,7 +31,6 @@ const ShareBox = ({ url, hasCommentBox }) => (
         <FontAwesomeIcon icon={['fab', 'facebook-f']} />
       </a>
     )}
-    {/* 視覺置中 => 稍微往上偏移 */}
     {hasCommentBox && <CommentButton />}
 
     <a
