@@ -17,11 +17,15 @@ import { config } from '../../../data';
 const defaultColor = config.posts.defaultHeaderBackgroundColor;
 
 const imageStyle = (headerImage, color) => {
+  const style = {
+    backgroundColor: `#${color}`,
+    backgroundSize: 'cover',
+  };
   if (headerImage === null) {
-    return { backgroundColor: `#${color}` };
+    return style;
   }
   return {
-    backgroundColor: `#${color}`,
+    ...style,
     backgroundImage: ` url(${parseImgur(headerImage, 'large')})`,
   };
 };

@@ -72,7 +72,6 @@ const getContent = async (mdFile) => {
   };
 
   const html = md.render(mdFile);
-  console.log(html);
   return { html, toc };
 };
 
