@@ -30,6 +30,7 @@ module.exports = ({ graphql, actions }) => {
               id
               url
               redirectPath
+              hiddenPage
             }
           }
         }
@@ -40,8 +41,13 @@ module.exports = ({ graphql, actions }) => {
         return reject();
       }
       const posts = result.data.allPostMarkdown.edges;
-      const pages = Math.ceil(posts.length / maxPostsInPage);
-
+      let pagecount = 0;
+      posts.forEach(({ node }) => {
+        if (node.hiddenPage !== true) {
+          pagecount += 1;
+        }
+      });
+      const pages = Math.ceil(pagecount / maxPostsInPage);
       for (let index = 0; index < pages; index += 1) {
         if (index === 0) {
           createPage({

@@ -78,14 +78,14 @@ export const pageQuery = graphql`
       subTitle
       subTitleVisible
     }
-    allPosts: allPostMarkdown(sort: { fields: [createdDate], order: DESC }) {
+    allPosts: allPostMarkdown(sort: { fields: [createdDate], order: DESC }, filter: {hiddenPage: {ne: true}}) {
       edges {
         node {
           id
         }
       }
     }
-    latestPosts: allPostMarkdown(limit: 6, sort: { fields: [createdDate], order: DESC }) {
+    latestPosts: allPostMarkdown(limit: 6, sort: { fields: [createdDate], order: DESC }, filter: {hiddenPage: {ne: true}}) {
       totalCount
       edges {
         node {
@@ -98,7 +98,8 @@ export const pageQuery = graphql`
     pagePosts: allPostMarkdown(
       sort: { order: DESC, fields: [createdDate] }
       limit: $limit
-      skip: $skip
+      skip: $skip,
+      filter: {hiddenPage: {ne: true}}
     ) {
       edges {
         node {

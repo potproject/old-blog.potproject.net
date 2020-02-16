@@ -23,6 +23,7 @@ const data = {
         headerImgur: 'https://potproject.net/icon/icon210.png',
         headerBackgroundColor: '4a913c',
         redirectPath: '',
+        hiddenPage: false,
       },
     },
   ],

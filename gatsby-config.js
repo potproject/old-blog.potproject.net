@@ -75,7 +75,7 @@ module.exports = {
             serialize: ({ query: { site, allPostMarkdown } }) => allPostMarkdown.edges.map((edge) => extractData(site, edge)),
             query: `
               {
-                  allPostMarkdown(limit: 10,sort: {fields: [createdDate], order: DESC}) {
+                  allPostMarkdown(limit: 10,sort: {fields: [createdDate], order: DESC}, filter: {hiddenPage: {ne: true}}) {
                     edges {
                       node {
                         content

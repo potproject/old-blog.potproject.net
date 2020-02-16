@@ -45,6 +45,8 @@ Lighthouse Performance: **100!**
 
 - Add Fields `redirectPath`.
 
+- Add Fields `hiddenPage`.
+
 ### Sidebar
 
 - Adding Twiiter Link
