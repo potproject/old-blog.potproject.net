@@ -194,7 +194,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    latestPosts: allPostMarkdown(limit: 6, sort: { fields: [createdDate], order: DESC }) {
+    latestPosts: allPostMarkdown(limit: 6, sort: { fields: [createdDate], order: DESC }, filter: {hiddenPage: {ne: true}}) {
       totalCount
       ...post
     }
