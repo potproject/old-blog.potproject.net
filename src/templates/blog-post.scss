@@ -25,19 +25,33 @@
         padding: 0.2em 0.4em;
         margin-top: 40px;
         margin-bottom: 15px;
-        border-left: solid 4px #4a913c;
       }
     }
 
     h1 {
       font-size: 24px;
-      font-weight: 400;
+      font-weight: 600;
       padding: 0.2em;
-      border-left: solid 4px #4a913c
+      border-bottom: solid 2px black;
+      margin-bottom: 20px;
     }
 
     h2 {
+      background: #f8fcf7;
       font-weight: 600;
+      border-left: solid 4px #4a913c;
+    }
+
+    h3 {
+      border-left: solid 3px #3c4a91;
+    }
+
+    h4 {
+      border-left: solid 3px #0a1408;
+    }
+
+    h5 {
+      border-left: solid 3px #0a1408;
     }
 
     .blockquote {
