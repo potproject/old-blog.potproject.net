@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 
 import PropTypes from 'prop-types';
 
-import config from '../../../data';
+import { config } from '../../../data';
 
 const schemaOrgJSONLD = ({
   url, title, siteTitleAlt, isPost, image, description,
@@ -56,32 +56,26 @@ const SEO = ({
     <title>{title}</title>
 
     {/* General tags */}
-    <meta name="description" content={description} />
-    <meta name="image" content={image} />
+    <meta name="description" content={description.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '')} />
+    <meta name="image" content={image || config.iconUrl} />
 
     {/* Schema.org tags */}
-    <script type="application/ld+json">
-      {JSON.stringify(schemaOrgJSONLD(url, title, siteTitleAlt, isPost))}
-    </script>
+    <script type="application/ld+json">{JSON.stringify(schemaOrgJSONLD(url, title, siteTitleAlt, isPost))}</script>
 
     {/* OpenGraph tags */}
     <meta property="og:url" content={url} />
-    {isPost ? (
-      <meta property="og:type" content="article" />
-    ) : (
-      <meta property="og:type" content="website" />
-    )}
+    {isPost ? <meta property="og:type" content="article" /> : <meta property="og:type" content="website" />}
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    <meta property="og:description" content={description.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '')} />
+    <meta property="og:image" content={image || config.iconUrl} />
     <meta property="fb:app_id" content={config.siteFBAppID ? config.siteFBAppID : ''} />
 
     {/* Twitter Card tags */}
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:creator" content={config.twitter_username ? config.twitter_username : ''} />
+    <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:creator" content={config.twitterUsername ? `@${config.twitterUsername}` : ''} />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
+    <meta name="twitter:description" content={description.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '')} />
+    <meta name="twitter:image" content={image || config.iconUrl} />
   </Helmet>
 );
 
