@@ -16,39 +16,39 @@ Homepage: https://blog.potproject.net/
 
 ### General
 
-- Japanese Language Supported.
-- i18n Supported. changed `dayjs` -> `Moment Timezone`
-- Adding params `data/template/config.js`.
-- Using libraries `gatsby-plugin-google-analytics`
-- Deleted Pages.
-- Package update. `npm` -> `yarn`
+-   Japanese Language Supported.
+-   i18n Supported. changed `dayjs` -> `Moment Timezone`
+-   Adding params `data/template/config.js`.
+-   Using libraries `gatsby-plugin-google-analytics`
+-   Deleted Pages.
+-   Package update. `npm` -> `yarn`
 
 ### Perfomance fix
 
 Lighthouse Performance: **100!**
 
-- **Not Using jQuery** And deleted.  
-  `bootstrap.js(jQuery)` -> `Bootstrap.native`  
-  `fancybox` -> none
-- Code refactoring.
+-   **Not Using jQuery** And deleted.  
+    `bootstrap.js(jQuery)` -> `Bootstrap.native`  
+    `fancybox` -> none
+-   Code refactoring.
 
 ### Config
 
-- `zhihuUsername` is Deleted.
+-   `zhihuUsername` is Deleted.
 
 ### Contentful Content Model : blogPost
 
-- `tags` fields changed `string` to `Array<String>`.  
-  `"Tag1, Tag2"` -> `["Tag1","Tag2"]`
+-   `tags` fields changed `string` to `Array<String>`.  
+    `"Tag1, Tag2"` -> `["Tag1","Tag2"]`
 
-- `jueJinLikeIconLink` And `jueJinPostLink` fields is Deleted.
+-   `jueJinLikeIconLink` And `jueJinPostLink` fields is Deleted.
 
-- Add Fields `redirectPath`.
+-   Add Fields `redirectPath`.
 
-- Add Fields `hiddenPage`.
+-   Add Fields `hiddenPage`.
 
 ### Sidebar
 
-- Adding Twiiter Link
-- Adding Mastodon Link
-- Deleting Mail Link
+-   Adding Twiiter Link
+-   Adding Mastodon Link
+-   Deleting Mail Link
