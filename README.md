@@ -1,3 +1,9 @@
+# [Now Archived]
+
+__This source code is currently not in use.__
+
+New Source Code: [potproject/blog.potproject.net-svelte](https://github.com/potproject/blog.potproject.net-svelte)
+
 # blog.potproject.net
 
 ![](https://images.ctfassets.net/a9tjjm7bfbeq/34zPvI0Gg8qmgQC2smiO02/ece193cd4f66607af41f5d7315fabeab/new.PNG)
